@@ -48,16 +48,19 @@
         }
         
         .loading-logo {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             margin-bottom: 20px;
             animation: pulse 2s infinite;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
         
         .loading-logo img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             border-radius: 50%;
         }
         
@@ -390,14 +393,18 @@
         }
         
         .product-image {
-            height: 180px;
+            height: 250px;
             overflow: hidden;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .product-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
         
@@ -896,16 +903,16 @@
             <div class="products-grid" id="allProductsGrid">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" alt="Toklu Yemi">
+                        <img src="h.jpeg" alt="Etlik Civciv Başlangıç Tam Yemi" style="object-fit: contain;">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">KÜÇÜKBAŞ YEMİ</div>
-                        <h3 class="product-title">Toklu Yemi</h3>
+                        <div class="product-category">KANATLI YEMİ</div>
+                        <h3 class="product-title">Etlik Civciv Başlangıç Tam Yemi</h3>
                         <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Toklu%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
+                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Etlik%20Civciv%20Başlangıç%20Tam%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
                             </button>
-                            <button class="btn-info" onclick="showProductInfo('Toklu Yemi', 'Genç erkek koyunlar (toklu) için özel olarak geliştirilmiş, yüksek protein ve enerji içeren Toklu Yemi. Hayvanlarınızın sağlıklı gelişimi için ideal tercihtir.')">
+                            <button class="btn-info" onclick="showProductInfo('Etlik Civciv Başlangıç Tam Yemi', 'Etlik civcivlerin sağlıklı büyümesi ve gelişmesi için özel olarak formüle edilmiş, yüksek protein ve vitamin içeren başlangıç yemi. Yavru kanatlılarınızın güçlü bir başlangıç yapması için ideal tercihtir.')">
                                 <i class="fas fa-info-circle"></i> Bilgi
                             </button>
                         </div>
@@ -913,7 +920,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Buzağı Büyütme Yemi">
+                        <img src="d.jpeg" alt="Buzağı Büyütme Yemi">
                     </div>
                     <div class="product-info">
                         <div class="product-category">BÜYÜKBAŞ YEMİ</div>
@@ -930,11 +937,11 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=800&q=80" alt="Sığır Besi Yemi">
+                        <img src="a.jpeg" alt="Sığır Besi Yemi">
                     </div>
                     <div class="product-info">
-                        <div class="product-category">BÜYÜKBAŞ YEMİ</div>
-                        <h3 class="product-title">Sığır Besi Yemi</h3>
+                        <div class="product-category">KANATLI YEMİ</div>
+                        <h3 class="product-title">hindi yumurta yemi</h3>
                         <div class="product-actions">
                             <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Sığır%20Besi%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
@@ -947,16 +954,50 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1603314585442-ee3b3c16fbcf?auto=format&fit=crop&w=800&q=80" alt="Tavuk Yemi">
+                        <img src="f.jpeg" alt="Gezen Tavuk Yumurta Tam Yemi" style="object-fit: contain;">
                     </div>
                     <div class="product-info">
                         <div class="product-category">KANATLI YEMİ</div>
-                        <h3 class="product-title">Tavuk Yemi</h3>
+                        <h3 class="product-title">Gezen Tavuk Yumurta Tam Yemi</h3>
                         <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Tavuk%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
+                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Gezen%20Tavuk%20Yumurta%20Tam%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
                                 <i class="fab fa-whatsapp"></i> WhatsApp
                             </button>
-                            <button class="btn-info" onclick="showProductInfo('Tavuk Yemi', 'Tavuklar için yüksek proteinli yem. Sağlıklı büyüme ve yüksek yumurta verimi için özel formül.')">
+                            <button class="btn-info" onclick="showProductInfo('Gezen Tavuk Yumurta Tam Yemi', 'Doğru seçim, yüksek verim. Gezen tavuklar için özel formüle edilmiş yüksek kaliteli yumurta yemi.')">
+                                <i class="fas fa-info-circle"></i> Bilgi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="g.jpeg" alt="Kuzu Büyütme Yemi" style="object-fit: contain;">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Kanatlı YEMİ</div>
+                        <h3 class="product-title">Etlik Civciv Yemi 2</h3>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Kuzu%20Büyütme%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <button class="btn-info" onclick="showProductInfo('Kuzu Büyütme Yemi', 'Kuzuların sağlıklı gelişimi ve hızlı büyümesi için vitamin ve mineral destekli Kuzu Büyütme Yemi. Yüksek besin değeriyle büyüme döneminde ideal tercihtir.')">
+                                <i class="fas fa-info-circle"></i> Bilgi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="s.jpeg" alt="Süt Yemi" style="object-fit: contain;">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">BÜYÜKBAŞ YEMİ</div>
+                        <h3 class="product-title">Süt Yemi</h3>
+                        <div class="product-actions">
+                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Süt%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <button class="btn-info" onclick="showProductInfo('Süt Yemi', 'Süt verimliliğini artırmak için özel olarak formüle edilmiş yüksek kaliteli yem. Süt ineklerinizin sağlıklı ve verimli olması için gerekli tüm besin maddelerini içerir.')">
                                 <i class="fas fa-info-circle"></i> Bilgi
                             </button>
                         </div>
@@ -991,7 +1032,7 @@
                     <p>Koyun ve keçiler için besleyici yemler</p>
                 </div>
                 
-                <div class="type-card">
+                  <div class="type-card">
                     <div class="type-icon">
                         <i class="fas fa-egg"></i>
                     </div>
@@ -1024,10 +1065,11 @@
             <div class="footer-links">
                 <h3>İletişim Bilgileri</h3>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Konya, Türkiye</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Konya, Türkiye
+                         Bahçeşehir, Hasanköy Cd. No:231 no 231, 42100 Meram/Konya </li>
                     <li><i class="fas fa-phone"></i> 0505 431 5002</li>
                     <li><i class="fas fa-envelope"></i> info@akgulyem.com</li>
-                    <li><i class="fas fa-clock"></i> 08:00 - 18:00</li>
+                    <li><i class="fas fa-clock"></i> 07:00 - 20:00</li>
                 </ul>
             </div>
         </div>
