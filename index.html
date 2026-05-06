@@ -2,874 +2,449 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akgül Yem | Konya'nın Kaliteli Yem Markası</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Akgül Yem | Konya 2026 Vision - Yeni Nesil Besleme</title>
+    
+    <!-- External Assets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <!-- FAVICON (SENİN LOGON) -->
-    <link rel="icon" type="image/jpeg" href="sen.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
     <style>
         :root {
-            --primary: #2E7D32; /* Yeşil ton */
-            --secondary: #1A237E; /* Koyu mavi */
-            --accent: #D32F2F; /* Kırmızı */
-            --light: #F5F5F5;
-            --dark: #212121;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --primary: #1b5e20;
+            --primary-light: #2e7d32;
+            --secondary: #0a192f;
+            --accent: #ffd600;
+            --danger: #ff1744;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --bg-site: #f8fafc;
+            --white: #ffffff;
+            --card-shadow: 0 10px 30px -5px rgba(0,0,0,0.04), 0 4px 10px -5px rgba(0,0,0,0.02);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
-        
+
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Poppins', sans-serif;
-            color: #333;
-            background: #f9f9f9;
-            line-height: 1.6;
+            background-color: var(--bg-site);
+            color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.6;
         }
-        
-        /* Loading Screen */
-        .loading-screen {
+
+        /* --- V2026 PRELOADER --- */
+        #loader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
+            inset: 0;
+            background: var(--secondary);
+            z-index: 10000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
-        
-        .loading-logo {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+        .letter-grid {
+            display: flex;
+            gap: clamp(5px, 2vw, 15px);
+            perspective: 1000px;
         }
-        
-        .loading-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
+
+        .letter {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3rem, 15vw, 7rem);
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(30px) rotateX(-90deg);
+            text-shadow: 0 0 20px rgba(255, 214, 0, 0.4);
         }
-        
-        .loading-text {
-            font-size: 1.2rem;
-            color: var(--secondary);
-            font-weight: 600;
+
+        .letter.active {
+            animation: letterArrival 0.5s forwards ease-out;
+        }
+
+        @keyframes letterArrival {
+            to { opacity: 1; transform: translateY(0) rotateX(0); }
+        }
+
+        .loader-version {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 5px;
             margin-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
         }
-        
-        .loading-bar {
-            width: 200px;
-            height: 4px;
-            background: #e0e0e0;
-            margin-top: 20px;
-            border-radius: 2px;
-            overflow: hidden;
+
+        /* --- KONYA EXCLUSIVE BAR --- */
+        .konya-bar {
+            background: var(--danger);
+            color: var(--white);
+            text-align: center;
+            padding: 10px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-        
-        .loading-progress {
-            height: 100%;
-            width: 0;
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            animation: loading 5s forwards;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes loading {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
-        
-        /* Header */
+
+        /* --- MODERN HEADER --- */
         header {
-            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
-            box-shadow: var(--shadow);
-            position: fixed;
+            position: sticky;
+            top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 12px 0;
-            transform: translateY(0);
-            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        
-        header.hide {
-            transform: translateY(-100%);
-        }
-        
-        .header-container {
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
         }
-        
-        .logo {
+
+        .logo-area {
             display: flex;
             align-items: center;
+            gap: 12px;
             text-decoration: none;
         }
-        
-        .logo-img {
-            height: 50px;
+
+        .logo-area img {
             width: 50px;
-            margin-right: 10px;
-        }
-        
-        .logo-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: 50px;
             border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
         }
-        
-        .logo-main {
+
+        .logo-area h1 {
             font-family: 'Bebas Neue', cursive;
-            font-size: 1.5rem;
-            color: #fff;
-            letter-spacing: 1px;
-        }
-        
-        .logo-sub {
-            font-size: 0.8rem;
-            color: #FFEB3B;
-            font-weight: 700;
-            margin-top: 2px;
-        }
-        
-        /* Navigation */
-        nav {
-            position: relative;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: block;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        nav ul li a:hover {
-            color: #FFEB3B;
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #FFEB3B;
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            color: white;
-            cursor: pointer;
-            padding: 5px;
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.3s;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #128C7E;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            min-height: 600px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1350&q=80') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-            line-height: 1.1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero h1 i {
-            color: #FFEB3B;
-            font-size: 2.5rem;
-            margin: 0 10px;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #fff;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-            text-align: center;
-            min-width: 180px;
-        }
-        
-        .btn-primary {
-            background: white;
-            color: var(--secondary);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-        }
-        
-        .btn-secondary {
-            background: var(--primary);
-            color: white;
-            border: 2px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-        }
-        
-        /* Products Section */
-        .products {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
             font-size: 2.2rem;
             color: var(--secondary);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
+            letter-spacing: 1px;
+            line-height: 1;
         }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+
+        .nav-desktop {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-desktop a:hover { color: var(--primary); }
+
+        .btn-call {
             background: var(--primary);
-        }
-        
-        .section-title p {
-            font-size: 1rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid #eee;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border-color: var(--primary);
-        }
-        
-        .product-image {
-            height: 250px;
-            overflow: hidden;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-category {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: inline-block;
-            background: rgba(211, 47, 47, 0.1);
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
-        
-        .product-title {
-            font-size: 1.2rem;
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 50px;
             font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .product-actions {
+            font-size: 0.85rem;
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
         }
-        
-        .btn-whatsapp {
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            flex: 1;
-            transition: all 0.3s;
-            background: #25D366;
-            color: white;
+
+        /* --- HERO 2026 --- */
+        .hero {
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-        
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-        
-        .btn-info {
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            flex: 1;
-            transition: all 0.3s;
-            background: var(--light);
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .btn-info:hover {
-            background: #e0e0e0;
-            transform: translateY(-2px);
-        }
-        
-        /* Animal Types */
-        .animal-types {
-            padding: 80px 0;
-            background: #f5f5f5;
-        }
-        
-        .types-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .type-card {
-            background: white;
-            border-radius: 12px;
-            padding: 30px 20px;
+            position: relative;
+            color: var(--white);
+            overflow: hidden;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
         }
-        
-        .type-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('sen.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
         }
-        
-        .type-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 25px;
         }
-        
-        .type-card h3 {
-            font-size: 1.3rem;
-            color: var(--secondary);
-            margin-bottom: 10px;
+
+        .hero-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
-        
-        .type-card p {
-            font-size: 0.95rem;
-            color: #555;
+
+        .hero-content h2 span { color: var(--accent); }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 35px;
+            font-weight: 400;
+            opacity: 0.9;
         }
+
+        /* --- V2026 PRODUCT GRID ( Yan Yana 2li ) --- */
+        .products { padding: 80px 0; background: var(--bg-site); }
         
-        /* Footer */
-        footer {
-            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
-            color: white;
-            padding: 60px 0 20px;
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; font-family: 'Montserrat'; font-weight: 800; color: var(--secondary); text-transform: uppercase; }
+        .section-title .line { width: 60px; height: 5px; background: var(--accent); margin: 15px auto; border-radius: 5px; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        .footer-container {
+
+        .p-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .p-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+        .p-img-wrap {
+            height: 260px;
+            padding: 25px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .p-img-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: 0.5s;
+        }
+
+        .p-card:hover .p-img-wrap img { transform: scale(1.1); }
+
+        .p-info { padding: 25px; flex-grow: 1; text-align: center; }
+        .p-info h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 700; color: var(--secondary); }
+        .p-info p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 25px; height: 55px; overflow: hidden; }
+
+        .p-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-p { padding: 12px; border-radius: 14px; font-weight: 700; text-align: center; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .btn-wa { background: #25D366; color: white; border: none; }
+        .btn-details { background: #f1f5f9; color: var(--secondary); border: 1px solid #e2e8f0; }
+
+        /* --- MOBILE GRID FIX (YAN YANA 2'LI) --- */
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr; /* ZORUNLU 2'Lİ SİSTEM */
+                gap: 12px;
+                padding: 0 10px;
+            }
+
+            .p-card { border-radius: 16px; }
+            .p-img-wrap { height: 150px; padding: 10px; }
+            .p-info { padding: 12px; }
+            .p-info h3 { font-size: 0.95rem; margin-bottom: 5px; height: 35px; overflow: hidden; }
+            .p-info p { font-size: 0.75rem; height: 32px; margin-bottom: 10px; line-height: 1.2; }
+            .p-footer { gap: 5px; }
+            .btn-p { padding: 10px 5px; font-size: 0.65rem; border-radius: 10px; }
+            
+            .nav-desktop { display: none; }
+            .hero { height: 50vh; }
+        }
+
+        /* --- LOJİSTİK 2026 --- */
+        .logistics { padding: 60px 0; background: var(--secondary); color: var(--white); text-align: center; }
+        .logistics h3 { font-size: 2.2rem; font-family: 'Bebas Neue'; color: var(--accent); margin-bottom: 30px; }
+        .district-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
         }
-        
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        
-        .footer-about p {
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .footer-links h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #FFEB3B;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links ul li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-links ul li i {
-            width: 20px;
-            text-align: center;
-        }
-        
-        .footer-links ul li a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links ul li a:hover {
-            color: #FFEB3B;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
+        .dist { background: rgba(255,255,255,0.05); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* --- AKILLI ASİSTAN (ENLARGED) --- */
+        #assistant {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+        }
+
+        #assistant-btn {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            position: relative;
-            animation: slideUp 0.4s ease;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
+            color: var(--white);
+            font-size: 32px;
             cursor: pointer;
-            color: var(--secondary);
-            transition: color 0.3s;
+            box-shadow: 0 15px 35px rgba(27, 94, 32, 0.3);
+            border: 4px solid var(--white);
         }
-        
-        .modal-close:hover {
-            color: var(--accent);
+
+        #assistant-panel {
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            width: min(450px, 95vw);
+            height: min(650px, 80vh);
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eee;
+            animation: slideInUp 0.4s ease;
         }
-        
-        .modal-content h3 {
-            color: var(--secondary);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+
+        .as-head {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
         }
-        
-        .modal-content p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
+
+        .as-body {
+            flex-grow: 1;
+            padding: 25px;
+            overflow-y: auto;
+            background: #fdfdfd;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-        
-        /* Search */
-        #productSearch {
-            width: 100%;
-            max-width: 500px;
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: 2px solid var(--primary);
-            margin: 0 auto 30px auto;
-            font-size: 1rem;
-            display: block;
-            transition: all 0.3s;
+
+        .bubble { padding: 18px 22px; border-radius: 20px; font-size: 0.95rem; max-width: 85%; }
+        .bot { background: #f1f5f9; color: var(--secondary); border-bottom-left-radius: 4px; }
+        .user { background: var(--primary); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
+
+        .as-footer {
+            padding: 20px;
+            background: var(--white);
+            border-top: 1px solid #eee;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
-        
-        #productSearch:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+
+        .chip {
+            padding: 12px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
         }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        /* --- FOOTER --- */
+        footer { background: #01040a; color: var(--white); padding: 100px 0 40px; }
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            padding: 0 25px;
         }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .f-col h4 { font-family: 'Bebas Neue'; font-size: 2.5rem; color: var(--accent); margin-bottom: 25px; }
+        .f-col p { color: #94a3b8; font-size: 1rem; }
+        .f-col li { margin-bottom: 15px; color: #cbd5e1; display: flex; align-items: center; gap: 15px; font-size: 0.95rem; list-style: none; }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: fixed;
-                top: 70px;
-                right: 20px;
-                background: white;
-                width: 250px;
-                border-radius: 8px;
-                box-shadow: var(--shadow);
-                padding: 15px 0;
-                z-index: 1001;
-            }
-            
-            nav ul.show {
-                display: block;
-                animation: slideDown 0.3s ease;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 10px 20px;
-                border-bottom: 1px solid #eee;
-            }
-            
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-            
-            nav ul li a {
-                color: var(--secondary);
-            }
-            
-            nav ul li a:hover {
-                color: var(--primary);
-            }
-            
-            nav ul li a::after {
-                background: var(--primary);
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .whatsapp-btn {
-                display: none;
-            }
-            
-            .hero {
-                min-height: 500px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .loading-logo {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .loading-text {
-                font-size: 1rem;
-            }
-            
-            .logo-main {
-                font-size: 1.2rem;
-            }
-            
-            .logo-sub {
-                font-size: 0.7rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 0.9rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .product-actions {
-                flex-direction: column;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">
-            <img src="sen.jpeg" alt="Akgül Yem Logo">
+
+    <!-- Harf Harf Gelen 2026 Preloader -->
+    <div id="loader">
+        <div class="letter-grid" id="letterContainer">
+            <!-- JS will populate letters -->
         </div>
-        <div class="loading-text">Yükleniyor...</div>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
-        </div>
+        <div class="loader-version">VERSION 2026 - KONYA</div>
+    </div>
+
+    <!-- Konya Delivery Strip -->
+    <div class="konya-bar">
+        <i class="fas fa-truck-fast"></i> Sadece <b>Konya</b> ve Tüm İlçelerine Gönderimimiz Mevcuttur!
     </div>
 
     <!-- Header -->
-    <header id="mainHeader">
-        <div class="header-container">
-            <a href="#" class="logo">
-                <div class="logo-img">
-                    <img src="sen.jpeg" alt="Akgül Yem Logo" />
-                </div>
-                <div class="logo-text">
-                    <span class="logo-main">KONYA AKGÜL YEM</span>
-                    <span class="logo-sub">KALİTENİN ADRESİ</span>
-                </div>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-area">
+                <img src="sen.jpeg" alt="Akgül Yem Logo">
+                <div class="logo-text"><h1>AKGÜL YEM</h1></div>
             </a>
             
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li><a href="#anasayfa"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-                    <li><a href="#urunler"><i class="fas fa-shopping-basket"></i> Ürünler</a></li>
-                    <li><a href="#cesitler"><i class="fas fa-list"></i> Yem Çeşitleri</a></li>
-                    <li><a href="#iletisim"><i class="fas fa-phone"></i> İletişim</a></li>
-                </ul>
-                <a href="https://wa.me/905054315002" class="whatsapp-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Sipariş Ver
+            <nav class="nav-desktop">
+                <a href="#anasayfa">ANA SAYFA</a>
+                <a href="#urunler">ÜRÜNLER</a>
+                <a href="#lojistik">LOJİSTİK</a>
+                <a href="https://wa.me/905386610057" class="btn-call" target="_blank">
+                    <i class="fab fa-whatsapp"></i> 0538 661 00 57
                 </a>
             </nav>
         </div>
@@ -877,307 +452,222 @@
 
     <!-- Hero Section -->
     <section class="hero" id="anasayfa">
+        <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1>
-                <i class="fas fa-cow"></i>
-                Konya'nın Güvencesi
-                <i class="fas fa-seedling"></i>
-            </h1>
-            <p>Konya Akgül Yem ile hayvanlarınızın sağlığı ve verimi için en kaliteli yemler. Uzman üretim ve efsanevi sonuçlar burada!</p>
-            <div class="hero-buttons">
-                <a href="#urunler" class="btn btn-primary">Ürünleri Keşfet</a>
-                <a href="https://wa.me/905054315002" class="btn btn-secondary" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Hemen Sipariş Ver
-                </a>
+            <h2 class="animate__animated animate__fadeInDown">KONYA'NIN <span>2026</span> VİZYON YEMİ</h2>
+            <p class="animate__animated animate__fadeInUp">Bilimsel rasyonlarla hazırlanan, yüksek verim odaklı yeni nesil yem çözümleri. Tarladan kapınıza en taze, en profesyonel destek.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#urunler" class="btn-call" style="background: var(--accent); color: var(--secondary) !important; padding: 18px 45px; font-size: 1rem;">KATALOĞU GÖR</a>
+                <a href="https://wa.me/905386610057" target="_blank" class="btn-call" style="background: transparent; border: 2px solid white; padding: 18px 45px; font-size: 1rem;">SİPARİŞ VER</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Product Section (Responsive 2-Col) -->
     <section class="products" id="urunler">
-        <div class="section-container">
-            <div class="section-title">
-                <h2>Ürünlerimiz</h2>
-                <p>Konya Akgül Yem olarak büyükbaş, küçükbaş ve kanatlı yemlerinde kalitenin adresiyiz.</p>
+        <div class="section-title">
+            <h2>PROFESYONEL ÜRÜNLERİMİZ</h2>
+            <div class="line"></div>
+            <p style="color: var(--text-light);">2026 Model Geliştirilmiş Rasyon İçerikleri</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Ürün 1: Süt Yemi (s.jpeg) -->
+            <div class="p-card animate__animated animate__fadeIn">
+                <div class="p-img-wrap"><img src="s.jpeg" alt="Süt Yemi"></div>
+                <div class="p-info">
+                    <h3>21 Protein Süt Yemi</h3>
+                    <p>Süt verimini maksimize eden, hayvan sağlığını koruyan enerji deposu.</p>
+                    <div class="p-footer">
+                        <button class="btn-p btn-details" onclick="openExpert('Süt Yemi V2026: 21 Protein, yüksek enerji ve vitamin takviyesi ile Konya süt üreticilerinin lider tercihi.')">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=21 Protein Süt Yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                    </div>
+                </div>
             </div>
-            <input type="text" id="productSearch" placeholder="Ürün ara...">
-            <div class="products-grid" id="allProductsGrid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="h.jpeg" alt="Etlik Civciv Başlangıç Tam Yemi" style="object-fit: contain;">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">KANATLI YEMİ</div>
-                        <h3 class="product-title">Etlik Civciv Başlangıç Tam Yemi</h3>
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Etlik%20Civciv%20Başlangıç%20Tam%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
-                            <button class="btn-info" onclick="showProductInfo('Etlik Civciv Başlangıç Tam Yemi', 'Etlik civcivlerin sağlıklı büyümesi ve gelişmesi için özel olarak formüle edilmiş, yüksek protein ve vitamin içeren başlangıç yemi. Yavru kanatlılarınızın güçlü bir başlangıç yapması için ideal tercihtir.')">
-                                <i class="fas fa-info-circle"></i> Bilgi
-                            </button>
-                        </div>
+
+            <!-- Ürün 2: Buzağı Yemi (d.jpeg) -->
+            <div class="p-card animate__animated animate__fadeIn">
+                <div class="p-img-wrap"><img src="d.jpeg" alt="Buzağı Yemi"></div>
+                <div class="p-info">
+                    <h3>Buzağı Başlangıç</h3>
+                    <p>İşkembe gelişimini hızlandıran ve bağışıklığı çelikleştiren özel yem.</p>
+                    <div class="p-footer">
+                        <button class="btn-p btn-details">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Buzağı Başlangıç Yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="d.jpeg" alt="Buzağı Büyütme Yemi">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">BÜYÜKBAŞ YEMİ</div>
-                        <h3 class="product-title">Buzağı Büyütme Yemi</h3>
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Buzağı%20Büyütme%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
-                            <button class="btn-info" onclick="showProductInfo('Buzağı Büyütme Yemi', 'Buzağıların sağlıklı gelişimi ve hızlı büyümesi için vitamin ve mineral destekli Buzağı Büyütme Yemi. Yüksek besin değeriyle büyüme döneminde ideal tercihtir.')">
-                                <i class="fas fa-info-circle"></i> Bilgi
-                            </button>
-                        </div>
+            </div>
+
+            <!-- Ürün 3: Kuzu Yemi (g.jpeg) -->
+            <div class="p-card animate__animated animate__fadeIn">
+                <div class="p-img-wrap"><img src="g.jpeg" alt="Kuzu Yemi"></div>
+                <div class="p-info">
+                    <h3>Premium Kuzu Besi</h3>
+                    <p>Hızlı canlı ağırlık artışı ve kaliteli karkas yapısı sağlayan rasyon.</p>
+                    <div class="p-footer">
+                        <button class="btn-p btn-details">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Premium Kuzu Besi yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="a.jpeg" alt="Sığır Besi Yemi">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">KANATLI YEMİ</div>
-                        <h3 class="product-title">hindi yumurta yemi</h3>
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Sığır%20Besi%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
-                            <button class="btn-info" onclick="showProductInfo('Sığır Besi Yemi', 'Yüksek enerjili, besleyici Sığır Besi Yemi. Büyükbaş hayvanlarınızın sağlıklı ve verimli gelişimi için özel olarak formüle edilmiştir.')">
-                                <i class="fas fa-info-circle"></i> Bilgi
-                            </button>
-                        </div>
+            </div>
+
+            <!-- Ürün 4: Civciv Yemi (h.jpeg) -->
+            <div class="p-card animate__animated animate__fadeIn">
+                <div class="p-img-wrap"><img src="h.jpeg" alt="Civciv Yemi"></div>
+                <div class="p-info">
+                    <h3>Etlik Civciv Başlangıç</h3>
+                    <p>Yavruların ilk günlerinde ihtiyacı olan tüm protein ve vitaminler.</p>
+                    <div class="p-footer">
+                        <button class="btn-p btn-details">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Civciv Başlangıç yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="f.jpeg" alt="Gezen Tavuk Yumurta Tam Yemi" style="object-fit: contain;">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">KANATLI YEMİ</div>
-                        <h3 class="product-title">Gezen Tavuk Yumurta Tam Yemi</h3>
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Gezen%20Tavuk%20Yumurta%20Tam%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
-                            <button class="btn-info" onclick="showProductInfo('Gezen Tavuk Yumurta Tam Yemi', 'Doğru seçim, yüksek verim. Gezen tavuklar için özel formüle edilmiş yüksek kaliteli yumurta yemi.')">
-                                <i class="fas fa-info-circle"></i> Bilgi
-                            </button>
-                        </div>
+            </div>
+
+            <!-- Ürün 5: Tavuk Yemi (f.jpeg) -->
+            <div class="p-card animate__animated animate__fadeIn">
+                <div class="p-img-wrap"><img src="f.jpeg" alt="Tavuk Yemi"></div>
+                <div class="p-info">
+                    <h3>Yumurta Tavuk Yemi</h3>
+                    <p>Yumurta verimini artıran, kabuk kalitesini güçlendiren tam yem.</p>
+                    <div class="p-footer">
+                        <button class="btn-p btn-details">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Yumurta Tavuk yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="g.jpeg" alt="Kuzu Büyütme Yemi" style="object-fit: contain;">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Kanatlı YEMİ</div>
-                        <h3 class="product-title">Etlik Civciv Yemi 2</h3>
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Kuzu%20Büyütme%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
-                            <button class="btn-info" onclick="showProductInfo('Kuzu Büyütme Yemi', 'Kuzuların sağlıklı gelişimi ve hızlı büyümesi için vitamin ve mineral destekli Kuzu Büyütme Yemi. Yüksek besin değeriyle büyüme döneminde ideal tercihtir.')">
-                                <i class="fas fa-info-circle"></i> Bilgi
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="s.jpeg" alt="Süt Yemi" style="object-fit: contain;">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">BÜYÜKBAŞ YEMİ</div>
-                        <h3 class="product-title">Süt Yemi</h3>
-                        <div class="product-actions">
-                            <button class="btn-whatsapp" onclick="window.open('https://wa.me/905054315002?text=Merhaba,%20Süt%20Yemi%20hakkında%20bilgi%20almak%20istiyorum', '_blank')">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </button>
-                            <button class="btn-info" onclick="showProductInfo('Süt Yemi', 'Süt verimliliğini artırmak için özel olarak formüle edilmiş yüksek kaliteli yem. Süt ineklerinizin sağlıklı ve verimli olması için gerekli tüm besin maddelerini içerir.')">
-                                <i class="fas fa-info-circle"></i> Bilgi
-                            </button>
-                        </div>
+            </div>
+
+            <!-- Ürün 6: Hindi Yemi (a.jpeg) -->
+            <div class="p-card animate__animated animate__fadeIn">
+                <div class="p-img-wrap"><img src="a.jpeg" alt="Hindi Yemi"></div>
+                <div class="p-info">
+                    <h3>Hindi Gelişim Master</h3>
+                    <p>Hindilerde et verimi ve hızlı büyüme için protein odaklı rasyon.</p>
+                    <div class="p-footer">
+                        <button class="btn-p btn-details">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Hindi Gelişim yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Animal Types -->
-    <section class="animal-types" id="cesitler">
-        <div class="section-container">
-            <div class="section-title">
-                <h2>Yem Çeşitlerimiz</h2>
-                <p>Çiftliğinizin tüm ihtiyaçlarını karşılayacak yem seçenekleri</p>
-            </div>
-            
-            <div class="types-grid">
-                <div class="type-card">
-                    <div class="type-icon">
-                        <i class="fas fa-cow"></i>
-                    </div>
-                    <h3>Büyükbaş Yemleri</h3>
-                    <p>Sığırlar için yüksek enerjili yemler</p>
-                </div>
-                
-                <div class="type-card">
-                    <div class="type-icon">
-                        <i class="fas fa-sheep"></i>
-                    </div>
-                    <h3>Küçükbaş Yemleri</h3>
-                    <p>Koyun ve keçiler için besleyici yemler</p>
-                </div>
-                
-                  <div class="type-card">
-                    <div class="type-icon">
-                        <i class="fas fa-egg"></i>
-                    </div>
-                    <h3>Kanatlı Yemleri</h3>
-                    <p>Tavuk, hindi ve diğer kanatlılar için yemler</p>
-                </div>
-            </div>
+    <!-- Lojistik Ağı -->
+    <section class="logistics" id="lojistik">
+        <h3>KONYA'NIN HER NOKTASINDAYIZ</h3>
+        <div class="district-wrap">
+            <span class="dist">MERAM</span><span class="dist">SELÇUKLU</span><span class="dist">KARATAY</span>
+            <span class="dist">EREĞLİ</span><span class="dist">AKŞEHİR</span><span class="dist">BEYŞEHİR</span>
+            <span class="dist">SEYDİŞEHİR</span><span class="dist">ILGIN</span><span class="dist">CİHANBEYLİ</span>
+            <span class="dist">KULU</span><span class="dist">ÇUMRA</span><span class="dist">KARAPINAR</span>
         </div>
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.6;">* Konya dışına gönderimimiz bulunmamaktadır.</p>
     </section>
 
-    <!-- Footer -->
-    <footer id="iletisim">
-        <div class="footer-container">
-            <div class="footer-about">
-                <a href="#" class="footer-logo">KONYA AKGÜL YEM</a>
-                <p>Hayvanlarınız için en kaliteli yemleri, uzman besiciler kontrolünde üretiyoruz.</p>
-                <a href="https://wa.me/905054315002" class="btn btn-secondary" target="_blank" style="width: fit-content; margin-top: 15px;">
-                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Sipariş
-                </a>
+    <!-- Footer 2026 -->
+    <footer>
+        <div class="footer-grid">
+            <div class="f-col">
+                <h4>AKGÜL YEM FABRİKASI</h4>
+                <p>1996 yılından beri Konya'nın bereketli topraklarında hayvancılığın kalkınması için en kaliteli yemleri üretiyoruz. Kalitemiz, çiftçimizin kazancıdır.</p>
             </div>
-            <div class="footer-links">
-                <h3>Hızlı Erişim</h3>
+            <div class="f-col">
+                <h4 style="font-size: 1.5rem;">İLETİŞİM</h4>
                 <ul>
-                    <li><a href="#anasayfa"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-                    <li><a href="#urunler"><i class="fas fa-shopping-basket"></i> Ürünler</a></li>
-                    <li><a href="#cesitler"><i class="fas fa-list"></i> Yem Çeşitleri</a></li>
-                    <li><a href="#iletisim"><i class="fas fa-phone"></i> İletişim</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h3>İletişim Bilgileri</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Konya, Türkiye
-                         Bahçeşehir, Hasanköy Cd. No:231 no 231, 42100 Meram/Konya </li>
-                    <li><i class="fas fa-phone"></i> 0505 431 5002</li>
-                    <li><i class="fas fa-envelope"></i> info@akgulyem.com</li>
-                    <li><i class="fas fa-clock"></i> 07:00 - 20:00</li>
+                    <li><i class="fas fa-phone-alt"></i> 0538 661 00 57</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Meram / Konya</li>
+                    <li><i class="fas fa-truck"></i> Sadece Konya İçi Sevkiyat</li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Konya Akgül Yem | Tüm Hakları Saklıdır.</p>
+        <div style="text-align: center; margin-top: 50px; color: #444; font-size: 0.8rem; border-top: 1px solid #111; padding-top: 25px;">
+            &copy; 2026 Konya Akgül Yem San. ve Tic. A.Ş. | Tüm Hakları Saklıdır.
         </div>
     </footer>
 
-    <!-- Product Info Modal -->
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeProductModal()">&times;</button>
-            <h3 id="modalProductTitle"></h3>
-            <p id="modalProductDesc"></p>
+    <!-- Devasa Akıllı Asistan -->
+    <div id="assistant">
+        <div id="assistant-panel">
+            <div class="as-head">
+                <i class="fas fa-headset" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                <h4>Akgül Akıllı Uzman V2026</h4>
+                <p style="font-size: 0.85rem; opacity: 0.8;">Size Nasıl Yardımcı Olabilirim?</p>
+            </div>
+            <div class="as-body" id="chatArea">
+                <div class="bubble bot">Selam! Ben Akgül Yem dijital danışmanıyım.</div>
+                <div class="bubble bot" style="background: #fee2e2; border: 1.5px solid #fecaca; font-weight: 800;">⚠️ ÇOK ÖNEMLİ: Lojistik ağımız SADECE KONYA ili ve ilçeleriyle sınırlıdır. Konya dışı sipariş kabul edilmemektedir.</div>
+            </div>
+            <div class="as-footer">
+                <div class="chip" onclick="expertChat('Güncel fiyat listesi alabilir miyim?')">FİYAT LİSTESİ</div>
+                <div class="chip" onclick="expertChat('Sipariş süreci nasıl işliyor?')">SİPARİŞ VER</div>
+                <div class="chip" onclick="expertChat('Konya ilçelerine gönderim var mı?')">KONYA İLÇELERİ</div>
+                <div class="chip" onclick="expertChat('Rasyon desteği istiyorum.')">DANIŞMANLIK</div>
+            </div>
+        </div>
+        <div id="assistant-btn" onclick="toggleAsistan()">
+            <i class="fas fa-comments"></i>
         </div>
     </div>
 
     <script>
-        // Loading Screen - 5 saniye sonra kapanacak
-        setTimeout(function() {
-            document.getElementById('loadingScreen').style.opacity = '0';
-            setTimeout(function() {
-                document.getElementById('loadingScreen').style.display = 'none';
-                document.getElementById('mainHeader').style.transform = 'translateY(0)';
-            }, 500);
-        }, 5000);
+        // --- PRELOADER (A-K-G-Ü-L-Y-E-M) ---
+        const brand = "AKGÜLYEM";
+        const container = document.getElementById('letterContainer');
         
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-        
-        // Menü dışına tıklandığında menüyü kapat
-        document.addEventListener('click', function() {
-            const navMenu = document.querySelector('nav ul');
-            if (navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-            }
-        });
-        
-        // Menü içine tıklandığında kapanmasın
-        document.querySelector('nav ul').addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-        
-        // Ürün arama fonksiyonu
-        document.getElementById('productSearch').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const productCards = document.querySelectorAll('.product-card');
-            
-            productCards.forEach(card => {
-                const title = card.querySelector('.product-title').textContent.toLowerCase();
-                if (title.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-        
-        // Ürün bilgi modal fonksiyonları
-        function showProductInfo(title, desc) {
-            document.getElementById('modalProductTitle').textContent = title;
-            document.getElementById('modalProductDesc').textContent = desc;
-            document.getElementById('productModal').classList.add('active');
-        }
-        
-        function closeProductModal() {
-            document.getElementById('productModal').classList.remove('active');
-        }
-        
-        // Modal dışına tıklandığında kapat
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('productModal');
-            if (event.target === modal) {
-                closeProductModal();
-            }
+        brand.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.className = 'letter';
+            container.appendChild(span);
+            setTimeout(() => span.classList.add('active'), i * 100);
         });
 
-        // WhatsApp sipariş fonksiyonu
-        function orderViaWhatsapp(productName) {
-            const message = `Merhaba, ${productName} hakkında bilgi almak istiyorum.`;
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/905054315002?text=${encodedMessage}`, '_blank');
+        // --- GÜVENLİ AÇILIŞ (FIX) ---
+        function clearLoader() {
+            const loader = document.getElementById('loader');
+            if(loader && loader.style.display !== 'none') {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 800);
+            }
         }
-        
-        // Scroll ile header'ı gizleme/gösterme
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            const header = document.getElementById('mainHeader');
-            
-            if (currentScroll <= 100) {
-                header.style.transform = 'translateY(0)';
-                return;
-            }
-            
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                // Aşağı scroll
-                header.classList.add('hide');
-            } else {
-                // Yukarı scroll
-                header.classList.remove('hide');
-            }
-            lastScroll = currentScroll;
-        });
+        window.addEventListener('load', () => setTimeout(clearLoader, 1600));
+        setTimeout(clearLoader, 4000); // Kesin açılış (Donmayı önler)
+
+        // --- ASISTAN FONKSİYONLARI ---
+        function toggleAsistan() {
+            const panel = document.getElementById('assistant-panel');
+            panel.style.display = (panel.style.display === 'flex' ? 'none' : 'flex');
+        }
+
+        function expertChat(msg) {
+            const area = document.getElementById('chatArea');
+            const uMsg = document.createElement('div');
+            uMsg.className = 'bubble user';
+            uMsg.innerText = msg;
+            area.appendChild(uMsg);
+
+            setTimeout(() => {
+                const bMsg = document.createElement('div');
+                bMsg.className = 'bubble bot';
+                
+                if(msg.includes('ilçelerine') || msg.includes('gönderim')) {
+                    bMsg.innerText = "Konya merkez ve Akşehir, Ereğli, Meram, Selçuklu, Karatay gibi tüm 31 ilçeye kendi araçlarımızla taze sevkiyat yapıyoruz. Şehir dışı gönderimimiz yoktur.";
+                } else if(msg.includes('Sipariş')) {
+                    bMsg.innerText = "0538 661 00 57 numaralı hattımızı arayarak veya web sitemizdeki WhatsApp butonlarından saniyeler içinde sipariş oluşturabilirsiniz.";
+                } else {
+                    bMsg.innerText = "Size yardımcı olmaktan mutluluk duyarız. Konya'nın en taze ve kaliteli yemleri için profesyonel ekibimiz hazır!";
+                }
+                
+                area.appendChild(bMsg);
+                area.scrollTop = area.scrollHeight;
+            }, 600);
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function openExpert(msg) {
+            toggleAsistan();
+            expertChat(msg);
+        }
     </script>
 </body>
 </html>
