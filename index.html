@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
+    <!-- Favicon (Logon) -->
+    <link rel="icon" type="image/jpeg" href="sen.jpeg">
+    
     <style>
         :root {
             --primary: #1b5e20;
@@ -21,7 +24,7 @@
             --text-light: #64748b;
             --bg-site: #f8fafc;
             --white: #ffffff;
-            --card-shadow: 0 10px 30px -5px rgba(0,0,0,0.04), 0 4px 10px -5px rgba(0,0,0,0.02);
+            --card-shadow: 0 10px 30px -5px rgba(0,0,0,0.06), 0 4px 10px -5px rgba(0,0,0,0.03);
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -52,7 +55,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: opacity 0.6s ease;
         }
 
         .letter-grid {
@@ -109,9 +112,9 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
@@ -132,8 +135,8 @@
         }
 
         .logo-area img {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             border: 2px solid var(--accent);
             object-fit: cover;
@@ -141,7 +144,7 @@
 
         .logo-area h1 {
             font-family: 'Bebas Neue', cursive;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--secondary);
             letter-spacing: 1px;
             line-height: 1;
@@ -175,11 +178,12 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
+            text-decoration: none;
         }
 
         /* --- HERO 2026 --- */
         .hero {
-            height: 70vh;
+            height: 65vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -192,7 +196,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('sen.jpeg');
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.45)), url('sen.jpeg');
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -207,9 +211,9 @@
 
         .hero-content h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 20px;
             text-transform: uppercase;
         }
@@ -217,45 +221,44 @@
         .hero-content h2 span { color: var(--accent); }
 
         .hero-content p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             margin-bottom: 35px;
             font-weight: 400;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        /* --- V2026 PRODUCT GRID ( Yan Yana 2li ) --- */
+        /* --- V2026 PRODUCT GRID --- */
         .products { padding: 80px 0; background: var(--bg-site); }
         
         .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.5rem; font-family: 'Montserrat'; font-weight: 800; color: var(--secondary); text-transform: uppercase; }
+        .section-title h2 { font-size: 2.2rem; font-family: 'Montserrat'; font-weight: 800; color: var(--secondary); text-transform: uppercase; }
         .section-title .line { width: 60px; height: 5px; background: var(--accent); margin: 15px auto; border-radius: 5px; }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .p-card {
             background: var(--white);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            position: relative;
         }
 
-        .p-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .p-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.07); }
 
         .p-img-wrap {
-            height: 260px;
-            padding: 25px;
+            height: 240px;
+            padding: 20px;
             background: #fff;
             display: flex;
             align-items: center;
@@ -264,46 +267,60 @@
         }
 
         .p-img-wrap img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
             transition: 0.5s;
         }
 
-        .p-card:hover .p-img-wrap img { transform: scale(1.1); }
+        .p-info { padding: 20px; flex-grow: 1; text-align: center; }
+        .p-info h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; color: var(--secondary); }
+        .p-info p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 15px; height: 45px; overflow: hidden; }
 
-        .p-info { padding: 25px; flex-grow: 1; text-align: center; }
-        .p-info h3 { font-size: 1.3rem; margin-bottom: 12px; font-weight: 700; color: var(--secondary); }
-        .p-info p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 25px; height: 55px; overflow: hidden; }
+        .p-specs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .p-specs span { background: #e8f5e9; padding: 4px 10px; border-radius: 6px; }
 
         .p-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-p { padding: 12px; border-radius: 14px; font-weight: 700; text-align: center; text-decoration: none; font-size: 0.8rem; transition: 0.3s; }
+        .btn-p { padding: 12px; border-radius: 12px; font-weight: 700; text-align: center; text-decoration: none; font-size: 0.75rem; transition: 0.3s; }
         .btn-wa { background: #25D366; color: white; border: none; }
         .btn-details { background: #f1f5f9; color: var(--secondary); border: 1px solid #e2e8f0; }
 
         /* --- MOBILE GRID FIX (YAN YANA 2'LI) --- */
         @media (max-width: 768px) {
             .product-grid {
-                grid-template-columns: 1fr 1fr; /* ZORUNLU 2'Lİ SİSTEM */
+                grid-template-columns: 1fr 1fr; /* MOBİLDE YAN YANA İKİLİ */
                 gap: 12px;
                 padding: 0 10px;
             }
 
-            .p-card { border-radius: 16px; }
-            .p-img-wrap { height: 150px; padding: 10px; }
+            .p-card { border-radius: 12px; }
+            .p-img-wrap { height: 160px; padding: 10px; }
             .p-info { padding: 12px; }
-            .p-info h3 { font-size: 0.95rem; margin-bottom: 5px; height: 35px; overflow: hidden; }
-            .p-info p { font-size: 0.75rem; height: 32px; margin-bottom: 10px; line-height: 1.2; }
+            .p-info h3 { font-size: 0.9rem; margin-bottom: 5px; height: 35px; overflow: hidden; }
+            .p-info p { font-size: 0.7rem; height: 30px; margin-bottom: 10px; line-height: 1.2; display: none; } /* Açıklamayı mobilde gizle yer açmak için */
+            .p-specs { gap: 5px; font-size: 0.6rem; margin-bottom: 10px; }
+            .p-specs span { padding: 2px 6px; }
             .p-footer { gap: 5px; }
-            .btn-p { padding: 10px 5px; font-size: 0.65rem; border-radius: 10px; }
+            .btn-p { padding: 10px 4px; font-size: 0.6rem; border-radius: 8px; }
             
             .nav-desktop { display: none; }
-            .hero { height: 50vh; }
+            .hero { height: 45vh; }
+            .hero-content h2 { font-size: 1.8rem; }
+            .section-title h2 { font-size: 1.6rem; }
         }
 
         /* --- LOJİSTİK 2026 --- */
         .logistics { padding: 60px 0; background: var(--secondary); color: var(--white); text-align: center; }
-        .logistics h3 { font-size: 2.2rem; font-family: 'Bebas Neue'; color: var(--accent); margin-bottom: 30px; }
+        .logistics h3 { font-size: 2rem; font-family: 'Bebas Neue'; color: var(--accent); margin-bottom: 30px; }
         .district-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -313,39 +330,39 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        .dist { background: rgba(255,255,255,0.05); padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); }
+        .dist { background: rgba(255,255,255,0.05); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- AKILLI ASİSTAN (ENLARGED) --- */
+        /* --- AKILLI ASİSTAN (GELİŞMİŞ) --- */
         #assistant {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 20px;
             z-index: 2000;
         }
 
         #assistant-btn {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 32px;
+            font-size: 28px;
             cursor: pointer;
-            box-shadow: 0 15px 35px rgba(27, 94, 32, 0.3);
-            border: 4px solid var(--white);
+            box-shadow: 0 10px 25px rgba(27, 94, 32, 0.3);
+            border: 3px solid var(--white);
         }
 
         #assistant-panel {
             position: absolute;
-            bottom: 85px;
+            bottom: 75px;
             right: 0;
-            width: min(450px, 95vw);
+            width: min(450px, 92vw);
             height: min(650px, 80vh);
             background: var(--white);
-            border-radius: 30px;
+            border-radius: 25px;
             box-shadow: 0 30px 80px rgba(0,0,0,0.25);
             display: none;
             flex-direction: column;
@@ -357,60 +374,60 @@
         .as-head {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
-            padding: 30px;
+            padding: 25px;
             text-align: center;
         }
 
         .as-body {
             flex-grow: 1;
-            padding: 25px;
+            padding: 20px;
             overflow-y: auto;
             background: #fdfdfd;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .bubble { padding: 18px 22px; border-radius: 20px; font-size: 0.95rem; max-width: 85%; }
+        .bubble { padding: 14px 18px; border-radius: 18px; font-size: 0.9rem; max-width: 85%; }
         .bot { background: #f1f5f9; color: var(--secondary); border-bottom-left-radius: 4px; }
         .user { background: var(--primary); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
 
         .as-footer {
-            padding: 20px;
+            padding: 15px;
             background: var(--white);
             border-top: 1px solid #eee;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 8px;
         }
 
         .chip {
-            padding: 12px;
+            padding: 10px;
             background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 0.85rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.75rem;
             font-weight: 700;
             text-align: center;
             cursor: pointer;
         }
 
         /* --- FOOTER --- */
-        footer { background: #01040a; color: var(--white); padding: 100px 0 40px; }
+        footer { background: #01040a; color: var(--white); padding: 80px 0 40px; }
         .footer-grid {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
+            gap: 50px;
             padding: 0 25px;
         }
-        .f-col h4 { font-family: 'Bebas Neue'; font-size: 2.5rem; color: var(--accent); margin-bottom: 25px; }
-        .f-col p { color: #94a3b8; font-size: 1rem; }
-        .f-col li { margin-bottom: 15px; color: #cbd5e1; display: flex; align-items: center; gap: 15px; font-size: 0.95rem; list-style: none; }
+        .f-col h4 { font-family: 'Bebas Neue'; font-size: 2.2rem; color: var(--accent); margin-bottom: 25px; }
+        .f-col p { color: #94a3b8; font-size: 0.9rem; }
+        .f-col li { margin-bottom: 12px; color: #cbd5e1; display: flex; align-items: center; gap: 12px; font-size: 0.9rem; list-style: none; }
 
         @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -421,21 +438,21 @@
     <!-- Harf Harf Gelen 2026 Preloader -->
     <div id="loader">
         <div class="letter-grid" id="letterContainer">
-            <!-- JS will populate letters -->
+            <!-- JS ile doldurulacak -->
         </div>
-        <div class="loader-version">VERSION 2026 - KONYA</div>
+        <div class="loader-version">Akgül Yem - Sürüm 2026.1.0</div>
     </div>
 
     <!-- Konya Delivery Strip -->
     <div class="konya-bar">
-        <i class="fas fa-truck-fast"></i> Sadece <b>Konya</b> ve Tüm İlçelerine Gönderimimiz Mevcuttur!
+        <i class="fas fa-truck-fast"></i> SADECE <b>KONYA</b> İÇİ SEVKİYATIMIZ VARDIR!
     </div>
 
     <!-- Header -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo-area">
-                <img src="sen.jpeg" alt="Akgül Yem Logo">
+                <img src="sen.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/45?text=AY'">
                 <div class="logo-text"><h1>AKGÜL YEM</h1></div>
             </a>
             
@@ -455,165 +472,170 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <h2 class="animate__animated animate__fadeInDown">KONYA'NIN <span>2026</span> VİZYON YEMİ</h2>
-            <p class="animate__animated animate__fadeInUp">Bilimsel rasyonlarla hazırlanan, yüksek verim odaklı yeni nesil yem çözümleri. Tarladan kapınıza en taze, en profesyonel destek.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#urunler" class="btn-call" style="background: var(--accent); color: var(--secondary) !important; padding: 18px 45px; font-size: 1rem;">KATALOĞU GÖR</a>
-                <a href="https://wa.me/905386610057" target="_blank" class="btn-call" style="background: transparent; border: 2px solid white; padding: 18px 45px; font-size: 1rem;">SİPARİŞ VER</a>
+            <p class="animate__animated animate__fadeInUp">Laboratuvar ortamında hazırlanan, maksimum verim odaklı profesyonel besleme çözümleri. Tarladan kapınıza gerçek kalite.</p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="#urunler" class="btn-call" style="background: var(--accent); color: var(--secondary) !important; padding: 15px 40px;">ÜRÜNLER</a>
+                <a href="https://wa.me/905386610057" target="_blank" class="btn-call" style="background: transparent; border: 2px solid white; padding: 15px 40px;">SİPARİŞ</a>
             </div>
         </div>
     </section>
 
-    <!-- Product Section (Responsive 2-Col) -->
+    <!-- Ürünler (Mobil 2'li) -->
     <section class="products" id="urunler">
         <div class="section-title">
-            <h2>PROFESYONEL ÜRÜNLERİMİZ</h2>
+            <h2>PROFESYONEL YEMLERİMİZ</h2>
             <div class="line"></div>
-            <p style="color: var(--text-light);">2026 Model Geliştirilmiş Rasyon İçerikleri</p>
         </div>
 
         <div class="product-grid">
-            <!-- Ürün 1: Süt Yemi (s.jpeg) -->
-            <div class="p-card animate__animated animate__fadeIn">
-                <div class="p-img-wrap"><img src="s.jpeg" alt="Süt Yemi"></div>
+            <!-- P1: Süt Yemi (s.jpeg) -->
+            <div class="p-card">
+                <div class="p-img-wrap"><img src="s.jpeg" alt="Akgül Süt 21"></div>
                 <div class="p-info">
-                    <h3>21 Protein Süt Yemi</h3>
-                    <p>Süt verimini maksimize eden, hayvan sağlığını koruyan enerji deposu.</p>
+                    <h3>Akgül Süt 21 (Premium)</h3>
+                    <div class="p-specs"><span>%21 Protein</span><span>2850 Kcal</span></div>
+                    <p>Yüksek süt verimi ve yağ oranı için bilimsel rasyon.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openExpert('Süt Yemi V2026: 21 Protein, yüksek enerji ve vitamin takviyesi ile Konya süt üreticilerinin lider tercihi.')">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=21 Protein Süt Yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openAssistant('Süt Yemi: 21 Protein, yüksek enerji ve vitamin takviyesi ile Konya süt üreticilerinin lider tercihi.')">DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Akgül Süt 21 yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Ürün 2: Buzağı Yemi (d.jpeg) -->
-            <div class="p-card animate__animated animate__fadeIn">
-                <div class="p-img-wrap"><img src="d.jpeg" alt="Buzağı Yemi"></div>
+            <!-- P2: Buzağı Yemi (d.jpeg) -->
+            <div class="p-card">
+                <div class="p-img-wrap"><img src="d.jpeg" alt="Buzağı Başlangıç"></div>
                 <div class="p-info">
-                    <h3>Buzağı Başlangıç</h3>
-                    <p>İşkembe gelişimini hızlandıran ve bağışıklığı çelikleştiren özel yem.</p>
+                    <h3>Buzağı Başlangıç Yemi</h3>
+                    <div class="p-specs"><span>%18 Protein</span><span>Hızlı Gelişim</span></div>
+                    <p>İşkembe gelişimini hızlandıran ve bağışıklığı güçlendiren özel yem.</p>
                     <div class="p-footer">
                         <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Buzağı Başlangıç Yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <a href="https://wa.me/905386610057?text=Buzağı Başlangıç yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Ürün 3: Kuzu Yemi (g.jpeg) -->
-            <div class="p-card animate__animated animate__fadeIn">
-                <div class="p-img-wrap"><img src="g.jpeg" alt="Kuzu Yemi"></div>
+            <!-- P3: Kuzu Yemi (g.jpeg) -->
+            <div class="p-card">
+                <div class="p-img-wrap"><img src="g.jpeg" alt="Kuzu Besi"></div>
                 <div class="p-info">
                     <h3>Premium Kuzu Besi</h3>
-                    <p>Hızlı canlı ağırlık artışı ve kaliteli karkas yapısı sağlayan rasyon.</p>
+                    <div class="p-specs"><span>Hızlı Kilo</span><span>Karkas Kalitesi</span></div>
+                    <p>Kuzularda erken kesim ağırlığı ve sağlıklı kemik yapısı sağlar.</p>
                     <div class="p-footer">
                         <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Premium Kuzu Besi yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <a href="https://wa.me/905386610057?text=Kuzu Besi yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Ürün 4: Civciv Yemi (h.jpeg) -->
-            <div class="p-card animate__animated animate__fadeIn">
-                <div class="p-img-wrap"><img src="h.jpeg" alt="Civciv Yemi"></div>
+            <!-- P4: Civciv Yemi (h.jpeg) -->
+            <div class="p-card">
+                <div class="p-img-wrap"><img src="h.jpeg" alt="Civciv Başlangıç"></div>
                 <div class="p-info">
                     <h3>Etlik Civciv Başlangıç</h3>
-                    <p>Yavruların ilk günlerinde ihtiyacı olan tüm protein ve vitaminler.</p>
+                    <div class="p-specs"><span>%22 Protein</span><span>İlk 15 Gün</span></div>
+                    <p>Yavruların hayata güçlü başlaması için yüksek proteinli tam yem.</p>
                     <div class="p-footer">
                         <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Civciv Başlangıç yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <a href="https://wa.me/905386610057?text=Civciv Başlangıç yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Ürün 5: Tavuk Yemi (f.jpeg) -->
-            <div class="p-card animate__animated animate__fadeIn">
-                <div class="p-img-wrap"><img src="f.jpeg" alt="Tavuk Yemi"></div>
+            <!-- P5: Tavuk Yemi (f.jpeg) -->
+            <div class="p-card">
+                <div class="p-img-wrap"><img src="f.jpeg" alt="Yumurta Tavuk"></div>
                 <div class="p-info">
-                    <h3>Yumurta Tavuk Yemi</h3>
-                    <p>Yumurta verimini artıran, kabuk kalitesini güçlendiren tam yem.</p>
+                    <h3>Gezen Tavuk Yumurta</h3>
+                    <div class="p-specs"><span>Doğal Sarılık</span><span>Kalsiyum+</span></div>
+                    <p>Yumurta verimini zirveye taşıyan kabuk kalitesi destekli yem.</p>
                     <div class="p-footer">
                         <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Yumurta Tavuk yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <a href="https://wa.me/905386610057?text=Yumurta yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Ürün 6: Hindi Yemi (a.jpeg) -->
-            <div class="p-card animate__animated animate__fadeIn">
-                <div class="p-img-wrap"><img src="a.jpeg" alt="Hindi Yemi"></div>
+            <!-- P6: Hindi Yemi (a.jpeg) -->
+            <div class="p-card">
+                <div class="p-img-wrap"><img src="a.jpeg" alt="Hindi Gelişim"></div>
                 <div class="p-info">
                     <h3>Hindi Gelişim Master</h3>
-                    <p>Hindilerde et verimi ve hızlı büyüme için protein odaklı rasyon.</p>
+                    <div class="p-specs"><span>İri Göğüs</span><span>Kas Yapısı</span></div>
+                    <p>Hindilerde et verimi ve hızlı iskelet gelişimi için ideal rasyon.</p>
                     <div class="p-footer">
                         <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Hindi Gelişim yemi siparişi vermek istiyorum." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <a href="https://wa.me/905386610057?text=Hindi yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lojistik Ağı -->
+    <!-- Lojistik -->
     <section class="logistics" id="lojistik">
-        <h3>KONYA'NIN HER NOKTASINDAYIZ</h3>
+        <h3>KONYA'NIN 31 İLÇESİNDEYİZ</h3>
         <div class="district-wrap">
             <span class="dist">MERAM</span><span class="dist">SELÇUKLU</span><span class="dist">KARATAY</span>
             <span class="dist">EREĞLİ</span><span class="dist">AKŞEHİR</span><span class="dist">BEYŞEHİR</span>
             <span class="dist">SEYDİŞEHİR</span><span class="dist">ILGIN</span><span class="dist">CİHANBEYLİ</span>
             <span class="dist">KULU</span><span class="dist">ÇUMRA</span><span class="dist">KARAPINAR</span>
         </div>
-        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.6;">* Konya dışına gönderimimiz bulunmamaktadır.</p>
+        <p style="margin-top: 25px; font-size: 0.8rem; opacity: 0.6;">* Konya ili sınırları dışına gönderimimiz bulunmamaktadır.</p>
     </section>
 
-    <!-- Footer 2026 -->
+    <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="f-col">
-                <h4>AKGÜL YEM FABRİKASI</h4>
-                <p>1996 yılından beri Konya'nın bereketli topraklarında hayvancılığın kalkınması için en kaliteli yemleri üretiyoruz. Kalitemiz, çiftçimizin kazancıdır.</p>
+                <div class="logo-area" style="margin-bottom: 20px;">
+                    <img src="sen.jpeg" alt="Logo" style="border-width: 1px;">
+                    <h1 style="color: white; font-size: 1.8rem;">AKGÜL YEM</h1>
+                </div>
+                <p>Konya'da hayvancılığın modern yüzü. 30 yıllık tecrübemizi 2026 vizyonuyla birleştiriyoruz.</p>
             </div>
             <div class="f-col">
-                <h4 style="font-size: 1.5rem;">İLETİŞİM</h4>
+                <h4>İLETİŞİM</h4>
                 <ul>
                     <li><i class="fas fa-phone-alt"></i> 0538 661 00 57</li>
                     <li><i class="fas fa-map-marker-alt"></i> Meram / Konya</li>
-                    <li><i class="fas fa-truck"></i> Sadece Konya İçi Sevkiyat</li>
+                    <li><i class="fas fa-clock"></i> 07:00 - 20:00 (Açığız)</li>
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; color: #444; font-size: 0.8rem; border-top: 1px solid #111; padding-top: 25px;">
-            &copy; 2026 Konya Akgül Yem San. ve Tic. A.Ş. | Tüm Hakları Saklıdır.
+        <div style="text-align: center; margin-top: 50px; color: #444; font-size: 0.75rem; border-top: 1px solid #111; padding-top: 20px;">
+            &copy; 2026 Konya Akgül Yem San. ve Tic. A.Ş. | Sürüm 2026 Vision
         </div>
     </footer>
 
-    <!-- Devasa Akıllı Asistan -->
+    <!-- Akıllı Asistan -->
     <div id="assistant">
         <div id="assistant-panel">
             <div class="as-head">
-                <i class="fas fa-headset" style="font-size: 3rem; margin-bottom: 10px;"></i>
-                <h4>Akgül Akıllı Uzman V2026</h4>
-                <p style="font-size: 0.85rem; opacity: 0.8;">Size Nasıl Yardımcı Olabilirim?</p>
+                <h4 style="font-size: 1.1rem;">Akgül Akıllı Uzman V2026</h4>
             </div>
             <div class="as-body" id="chatArea">
-                <div class="bubble bot">Selam! Ben Akgül Yem dijital danışmanıyım.</div>
-                <div class="bubble bot" style="background: #fee2e2; border: 1.5px solid #fecaca; font-weight: 800;">⚠️ ÇOK ÖNEMLİ: Lojistik ağımız SADECE KONYA ili ve ilçeleriyle sınırlıdır. Konya dışı sipariş kabul edilmemektedir.</div>
+                <div class="bubble bot">Selam! Ben Akgül Yem dijital danışmanıyım. Size 2026 standartlarında nasıl yardımcı olabilirim?</div>
+                <div class="bubble bot" style="background: #fee2e2; border: 1px solid #fecaca; font-weight: 700;">⚠️ UYARI: Kargo ağımız sadece KONYA ili ve ilçeleriyle sınırlıdır.</div>
             </div>
             <div class="as-footer">
-                <div class="chip" onclick="expertChat('Güncel fiyat listesi alabilir miyim?')">FİYAT LİSTESİ</div>
-                <div class="chip" onclick="expertChat('Sipariş süreci nasıl işliyor?')">SİPARİŞ VER</div>
-                <div class="chip" onclick="expertChat('Konya ilçelerine gönderim var mı?')">KONYA İLÇELERİ</div>
-                <div class="chip" onclick="expertChat('Rasyon desteği istiyorum.')">DANIŞMANLIK</div>
+                <div class="chip" onclick="expertChat('Fiyat listesi alabilir miyim?')">FİYATLAR</div>
+                <div class="chip" onclick="expertChat('Konya dışına gönderim var mı?')">SEVKİYAT</div>
+                <div class="chip" onclick="expertChat('Hangi yemi tercih etmeliyim?')">DANIŞMANLIK</div>
+                <div class="chip" onclick="expertChat('Sipariş vermek istiyorum.')">SİPARİŞ VER</div>
             </div>
         </div>
         <div id="assistant-btn" onclick="toggleAsistan()">
-            <i class="fas fa-comments"></i>
+            <i class="fas fa-headset"></i>
         </div>
     </div>
 
     <script>
-        // --- PRELOADER (A-K-G-Ü-L-Y-E-M) ---
+        // --- PRELOADER ---
         const brand = "AKGÜLYEM";
         const container = document.getElementById('letterContainer');
-        
         brand.split('').forEach((char, i) => {
             const span = document.createElement('span');
             span.innerText = char;
@@ -625,15 +647,15 @@
         // --- GÜVENLİ AÇILIŞ (FIX) ---
         function clearLoader() {
             const loader = document.getElementById('loader');
-            if(loader && loader.style.display !== 'none') {
+            if(loader) {
                 loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 800);
+                setTimeout(() => loader.style.display = 'none', 600);
             }
         }
-        window.addEventListener('load', () => setTimeout(clearLoader, 1600));
-        setTimeout(clearLoader, 4000); // Kesin açılış (Donmayı önler)
+        window.addEventListener('load', () => setTimeout(clearLoader, 1500));
+        setTimeout(clearLoader, 3500); // Donmayı önleyen zamanlayıcı
 
-        // --- ASISTAN FONKSİYONLARI ---
+        // --- ASISTAN ---
         function toggleAsistan() {
             const panel = document.getElementById('assistant-panel');
             panel.style.display = (panel.style.display === 'flex' ? 'none' : 'flex');
@@ -649,22 +671,20 @@
             setTimeout(() => {
                 const bMsg = document.createElement('div');
                 bMsg.className = 'bubble bot';
-                
-                if(msg.includes('ilçelerine') || msg.includes('gönderim')) {
-                    bMsg.innerText = "Konya merkez ve Akşehir, Ereğli, Meram, Selçuklu, Karatay gibi tüm 31 ilçeye kendi araçlarımızla taze sevkiyat yapıyoruz. Şehir dışı gönderimimiz yoktur.";
+                if(msg.includes('Konya dışına')) {
+                    bMsg.innerText = "Maalesef lojistik ağımız sadece Konya merkezi ve ilçeleriyle sınırlıdır. Diğer illere gönderimimiz yoktur.";
                 } else if(msg.includes('Sipariş')) {
-                    bMsg.innerText = "0538 661 00 57 numaralı hattımızı arayarak veya web sitemizdeki WhatsApp butonlarından saniyeler içinde sipariş oluşturabilirsiniz.";
+                    bMsg.innerText = "Siparişinizi 0538 661 00 57 numaralı hattımızdan arayarak veya WhatsApp üzerinden hemen verebilirsiniz.";
                 } else {
-                    bMsg.innerText = "Size yardımcı olmaktan mutluluk duyarız. Konya'nın en taze ve kaliteli yemleri için profesyonel ekibimiz hazır!";
+                    bMsg.innerText = "Size yardımcı olmaktan mutluluk duyarız. Konya'nın en kaliteli yemleri için doğru adrestesiniz!";
                 }
-                
                 area.appendChild(bMsg);
                 area.scrollTop = area.scrollHeight;
             }, 600);
             area.scrollTop = area.scrollHeight;
         }
 
-        function openExpert(msg) {
+        function openAssistant(msg) {
             toggleAsistan();
             expertChat(msg);
         }
