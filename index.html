@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Akgül Yem | Konya 2026 Vision - Yeni Nesil Besleme</title>
+    <title>Akgül Yem | Konya 2026 Vision - Sadece Şubeden Satış</title>
     
     <!-- External Assets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
-    <!-- Favicon (Logon) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="sen.jpeg">
     
     <style>
@@ -19,7 +19,7 @@
             --primary-light: #2e7d32;
             --secondary: #0a192f;
             --accent: #ffd600;
-            --danger: #ff1744;
+            --danger: #d32f2f;
             --text-main: #1e293b;
             --text-light: #64748b;
             --bg-site: #f8fafc;
@@ -90,12 +90,12 @@
             opacity: 0.7;
         }
 
-        /* --- KONYA EXCLUSIVE BAR --- */
+        /* --- EXCLUSIVE ONLY-STORE BAR --- */
         .konya-bar {
             background: var(--danger);
             color: var(--white);
             text-align: center;
-            padding: 10px;
+            padding: 12px 10px;
             font-weight: 800;
             font-size: 0.85rem;
             position: sticky;
@@ -103,19 +103,30 @@
             z-index: 1001;
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         /* --- MODERN HEADER --- */
         header {
             position: sticky;
-            top: 0;
+            top: 43px; /* Konya barının altında kalması için */
             width: 100%;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             padding: 12px 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 480px) {
+            header {
+                top: 67px; /* Küçük ekranlarda bar iki satıra taşarsa diye */
+            }
         }
 
         .nav-container {
@@ -179,6 +190,12 @@
             gap: 8px;
             box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
             text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .btn-call:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
         }
 
         /* --- HERO 2026 --- */
@@ -196,7 +213,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.45)), url('sen.jpeg');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('sen.jpeg');
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -290,12 +307,15 @@
         .p-specs span { background: #e8f5e9; padding: 4px 10px; border-radius: 6px; }
 
         .p-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-p { padding: 12px; border-radius: 12px; font-weight: 700; text-align: center; text-decoration: none; font-size: 0.75rem; transition: 0.3s; }
+        .btn-p { padding: 12px; border-radius: 12px; font-weight: 700; text-align: center; text-decoration: none; font-size: 0.75rem; transition: 0.3s; cursor: pointer; }
         .btn-wa { background: #25D366; color: white; border: none; }
-        .btn-details { background: #f1f5f9; color: var(--secondary); border: 1px solid #e2e8f0; }
+        .btn-wa:hover { background: #20ba5a; }
+        .btn-details { background: var(--secondary); color: var(--white); border: none; }
+        .btn-details:hover { background: #132b4f; }
 
         /* --- MOBILE GRID FIX (YAN YANA 2'LI) --- */
         @media (max-width: 768px) {
+            header { top: 64px; } /* Mobil barda başlık payı */
             .product-grid {
                 grid-template-columns: 1fr 1fr; /* MOBİLDE YAN YANA İKİLİ */
                 gap: 12px;
@@ -306,7 +326,7 @@
             .p-img-wrap { height: 160px; padding: 10px; }
             .p-info { padding: 12px; }
             .p-info h3 { font-size: 0.9rem; margin-bottom: 5px; height: 35px; overflow: hidden; }
-            .p-info p { font-size: 0.7rem; height: 30px; margin-bottom: 10px; line-height: 1.2; display: none; } /* Açıklamayı mobilde gizle yer açmak için */
+            .p-info p { font-size: 0.7rem; height: 30px; margin-bottom: 10px; line-height: 1.2; display: none; }
             .p-specs { gap: 5px; font-size: 0.6rem; margin-bottom: 10px; }
             .p-specs span { padding: 2px 6px; }
             .p-footer { gap: 5px; }
@@ -318,21 +338,137 @@
             .section-title h2 { font-size: 1.6rem; }
         }
 
-        /* --- LOJİSTİK 2026 --- */
-        .logistics { padding: 60px 0; background: var(--secondary); color: var(--white); text-align: center; }
-        .logistics h3 { font-size: 2rem; font-family: 'Bebas Neue'; color: var(--accent); margin-bottom: 30px; }
-        .district-wrap {
-            display: flex;
-            flex-wrap: wrap;
+        /* --- DETAYLAR POPUP MODAL (YENİ) --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 5000;
+            display: none;
+            align-items: center;
             justify-content: center;
-            gap: 10px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
         }
-        .dist { background: rgba(255,255,255,0.05); padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- AKILLI ASİSTAN (GELİŞMİŞ) --- */
+        .modal-box {
+            background: var(--white);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 650px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            position: relative;
+            animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-header {
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .modal-header h4 { font-family: 'Montserrat'; font-size: 1.3rem; font-weight: 800; }
+        .modal-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; transition: 0.2s; }
+        .modal-close:hover { color: var(--accent); transform: scale(1.1); }
+
+        .modal-body { padding: 30px; }
+        
+        .spec-table { width: 100%; border-collapse: collapse; margin: 15px 0 25px; font-size: 0.9rem; }
+        .spec-table th, .spec-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .spec-table th { background: #f1f5f9; color: var(--secondary); font-weight: 700; }
+        .spec-table tr:hover { background: #f8fafc; }
+
+        .modal-section-title { font-family: 'Montserrat'; font-weight: 700; font-size: 1.05rem; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e8f5e9; padding-bottom: 6px; }
+        
+        .modal-text-block { background: #f8fafc; border-left: 4px solid var(--primary); padding: 15px; border-radius: 0 12px 12px 0; font-size: 0.9rem; color: var(--text-main); margin-bottom: 25px; }
+
+        .ingredients-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-bottom: 25px; }
+        .ingredients-list li { background: #e8f5e9; color: var(--primary-light); font-size: 0.8rem; font-weight: 600; padding: 6px 12px; border-radius: 50px; border: 1px solid #c8e6c9; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        /* --- ŞUBEMİZ VE İLETİŞİM BÖLÜMÜ --- */
+        .branch-section { padding: 80px 0; background: var(--secondary); color: var(--white); text-align: center; }
+        .branch-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .branch-section h3 { font-size: 2.2rem; font-family: 'Bebas Neue'; color: var(--accent); margin-bottom: 15px; letter-spacing: 1px; }
+        .branch-section p { max-width: 700px; margin: 0 auto 40px; color: #94a3b8; font-size: 1rem; }
+        
+        .branch-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .branch-card { grid-template-columns: 1fr; padding: 25px; gap: 25px; text-align: center; }
+        }
+
+        .branch-info-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .branch-info-list li { display: flex; align-items: flex-start; gap: 15px; font-size: 1rem; }
+        @media (max-width: 768px) { .branch-info-list li { justify-content: center; align-items: center; } }
+        .branch-info-list i { font-size: 1.4rem; color: var(--accent); width: 30px; text-align: center; margin-top: 3px; }
+        @media (max-width: 768px) { .branch-info-list i { margin-top: 0; } }
+
+        .branch-map-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed rgba(255,255,255,0.15);
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .map-bg-effect {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(27,94,32,0.15) 0%, rgba(10,25,47,0.4) 100%);
+            z-index: 1;
+        }
+
+        .map-content { position: relative; z-index: 2; text-align: center; padding: 20px; }
+        .map-content i { font-size: 3rem; color: var(--danger); margin-bottom: 15px; text-shadow: 0 0 15px rgba(211, 47, 47, 0.4); }
+
+        .btn-map {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(27, 94, 32, 0.3);
+        }
+        .btn-map:hover { background: var(--primary-light); transform: translateY(-2px); }
+
+        /* --- AKILLI ASİSTAN --- */
         #assistant {
             position: fixed;
             bottom: 25px;
@@ -443,9 +579,9 @@
         <div class="loader-version">Akgül Yem - Sürüm 2026.1.0</div>
     </div>
 
-    <!-- Konya Delivery Strip -->
+    <!-- Exclusive Only-Store Strip -->
     <div class="konya-bar">
-        <i class="fas fa-truck-fast"></i> SADECE <b>KONYA</b> İÇİ SEVKİYATIMIZ VARDIR!
+        <i class="fas fa-store"></i> SATIŞLARIMIZ SADECE <b>MERAM ŞUBEMİZDEN</b> YAPILMAKTADIR. SEVKİYAT YOKTUR! <span style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: 900; color: #fff;"><i class="fas fa-calendar-times"></i> SALI GÜNLERİ KAPALIYIZ</span>
     </div>
 
     <!-- Header -->
@@ -458,10 +594,10 @@
             
             <nav class="nav-desktop">
                 <a href="#anasayfa">ANA SAYFA</a>
-                <a href="#urunler">ÜRÜNLER</a>
-                <a href="#lojistik">LOJİSTİK</a>
-                <a href="https://wa.me/905386610057" class="btn-call" target="_blank">
-                    <i class="fab fa-whatsapp"></i> 0538 661 00 57
+                <a href="#urunler">ÜRÜNLERİMİZ</a>
+                <a href="#subemiz">ŞUBEMİZ & KONUM</a>
+                <a href="https://wa.me/905386610057?text=Akgül%20Yem%20ürünleri%20hakkında%20teknik%20bilgi%20ve%20güncel%20fiyat%20listesini%20almak%20istiyorum." class="btn-call" target="_blank">
+                    <i class="fab fa-whatsapp"></i> RASYON & FİYAT DANIŞMA
                 </a>
             </nav>
         </div>
@@ -472,118 +608,205 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <h2 class="animate__animated animate__fadeInDown">KONYA'NIN <span>2026</span> VİZYON YEMİ</h2>
-            <p class="animate__animated animate__fadeInUp">Laboratuvar ortamında hazırlanan, maksimum verim odaklı profesyonel besleme çözümleri. Tarladan kapınıza gerçek kalite.</p>
+            <p class="animate__animated animate__fadeInUp">Maksimum verim odaklı profesyonel besleme rasyonları. Sadece Meram şubemizden doğrudan elden teslim!</p>
             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <a href="#urunler" class="btn-call" style="background: var(--accent); color: var(--secondary) !important; padding: 15px 40px;">ÜRÜNLER</a>
-                <a href="https://wa.me/905386610057" target="_blank" class="btn-call" style="background: transparent; border: 2px solid white; padding: 15px 40px;">SİPARİŞ</a>
+                <a href="#urunler" class="btn-call" style="background: var(--accent); color: var(--secondary) !important; padding: 15px 40px; font-weight: 800;">ÜRÜNLERİMİZ</a>
+                <a href="#subemiz" class="btn-call" style="background: transparent; border: 2px solid white; padding: 15px 40px;">ŞUBE YOL TARİFİ</a>
             </div>
         </div>
     </section>
 
-    <!-- Ürünler (Mobil 2'li) -->
+    <!-- Ürünler -->
     <section class="products" id="urunler">
         <div class="section-title">
             <h2>PROFESYONEL YEMLERİMİZ</h2>
+            <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-top: -10px;">Ürünlerimizi Meram şubemizden inceleyerek elden teslim alabilirsiniz.</p>
             <div class="line"></div>
         </div>
 
         <div class="product-grid">
             <!-- P1: Süt Yemi (s.jpeg) -->
             <div class="p-card">
-                <div class="p-img-wrap"><img src="s.jpeg" alt="Akgül Süt 21"></div>
+                <div class="p-img-wrap"><img src="s.jpeg" alt="Akgül Süt 21" onerror="this.src='https://via.placeholder.com/200?text=Akg%C3%BCl+S%C3%BCt+21'"></div>
                 <div class="p-info">
                     <h3>Akgül Süt 21 (Premium)</h3>
                     <div class="p-specs"><span>%21 Protein</span><span>2850 Kcal</span></div>
-                    <p>Yüksek süt verimi ve yağ oranı için bilimsel rasyon.</p>
+                    <p>Yüksek süt verimi ve optimal tereyağı rasyonu için dengelenmiş rasyon.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openAssistant('Süt Yemi: 21 Protein, yüksek enerji ve vitamin takviyesi ile Konya süt üreticilerinin lider tercihi.')">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Akgül Süt 21 yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openDetails('sut')">TEKNİK DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Akgül%20Süt%2021%20yemi%20hakkında%20teknik%20bilgi%20ve%20güncel%20çorba/rasyon%20değerlerini%20öğrenmek%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
                     </div>
                 </div>
             </div>
 
             <!-- P2: Buzağı Yemi (d.jpeg) -->
             <div class="p-card">
-                <div class="p-img-wrap"><img src="d.jpeg" alt="Buzağı Başlangıç"></div>
+                <div class="p-img-wrap"><img src="d.jpeg" alt="Buzağı Başlangıç" onerror="this.src='https://via.placeholder.com/200?text=Buza%C4%9F%C4%B1+Ba%C5%9Flang%C4%B1%C3%A7'"></div>
                 <div class="p-info">
                     <h3>Buzağı Başlangıç Yemi</h3>
                     <div class="p-specs"><span>%18 Protein</span><span>Hızlı Gelişim</span></div>
-                    <p>İşkembe gelişimini hızlandıran ve bağışıklığı güçlendiren özel yem.</p>
+                    <p>İşkembe gelişimini hızlandıran ve bağışıklığı güçlendiren özel maya katkısı.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Buzağı Başlangıç yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openDetails('buzagi')">TEKNİK DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Buzağı%20Başlangıç%20yemi%20hakkında%20besleme%20programı%20ve%20teknik%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
                     </div>
                 </div>
             </div>
 
             <!-- P3: Kuzu Yemi (g.jpeg) -->
             <div class="p-card">
-                <div class="p-img-wrap"><img src="g.jpeg" alt="Kuzu Besi"></div>
+                <div class="p-img-wrap"><img src="g.jpeg" alt="Kuzu Besi" onerror="this.src='https://via.placeholder.com/200?text=Kuzu+Besi'"></div>
                 <div class="p-info">
                     <h3>Premium Kuzu Besi</h3>
                     <div class="p-specs"><span>Hızlı Kilo</span><span>Karkas Kalitesi</span></div>
-                    <p>Kuzularda erken kesim ağırlığı ve sağlıklı kemik yapısı sağlar.</p>
+                    <p>Kuzularda erken kesim ağırlığı, sağlıklı kemik gelişimi ve yüksek karkas verimi.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Kuzu Besi yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openDetails('kuzu')">TEKNİK DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Premium%20Kuzu%20Besi%20yeminin%20mineralleri%20ve%20güncel%20besleme%20periyodu%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
                     </div>
                 </div>
             </div>
 
             <!-- P4: Civciv Yemi (h.jpeg) -->
             <div class="p-card">
-                <div class="p-img-wrap"><img src="h.jpeg" alt="Civciv Başlangıç"></div>
+                <div class="p-img-wrap"><img src="h.jpeg" alt="Civciv Başlangıç" onerror="this.src='https://via.placeholder.com/200?text=Civciv+Ba%C5%9Flang%C4%B1%C3%A7'"></div>
                 <div class="p-info">
                     <h3>Etlik Civciv Başlangıç</h3>
                     <div class="p-specs"><span>%22 Protein</span><span>İlk 15 Gün</span></div>
-                    <p>Yavruların hayata güçlü başlaması için yüksek proteinli tam yem.</p>
+                    <p>Yavruların hayata sağlıklı ve yüksek iskelet direnciyle başlaması için aminoasit zengini.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Civciv Başlangıç yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openDetails('civciv')">TEKNİK DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Etlik%20Civciv%20Başlangıç%20yeminin%20aminoasit%20profilleri%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
                     </div>
                 </div>
             </div>
 
             <!-- P5: Tavuk Yemi (f.jpeg) -->
             <div class="p-card">
-                <div class="p-img-wrap"><img src="f.jpeg" alt="Yumurta Tavuk"></div>
+                <div class="p-img-wrap"><img src="f.jpeg" alt="Yumurta Tavuk" onerror="this.src='https://via.placeholder.com/200?text=Yumurta+Tavuk'"></div>
                 <div class="p-info">
                     <h3>Gezen Tavuk Yumurta</h3>
                     <div class="p-specs"><span>Doğal Sarılık</span><span>Kalsiyum+</span></div>
-                    <p>Yumurta verimini zirveye taşıyan kabuk kalitesi destekli yem.</p>
+                    <p>Yumurta kalitesini zirveye çıkaran kalsiyum ve kabuk direnç katkılı formül.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Yumurta yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openDetails('tavuk')">TEKNİK DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Gezen%20Tavuk%20Yumurta%20yeminin%20kalsiyum%20ve%20pigment%20oranları%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
                     </div>
                 </div>
             </div>
 
             <!-- P6: Hindi Yemi (a.jpeg) -->
             <div class="p-card">
-                <div class="p-img-wrap"><img src="a.jpeg" alt="Hindi Gelişim"></div>
+                <div class="p-img-wrap"><img src="a.jpeg" alt="Hindi Gelişim" onerror="this.src='https://via.placeholder.com/200?text=Hindi+Geli%C5%9Fim'"></div>
                 <div class="p-info">
                     <h3>Hindi Gelişim Master</h3>
                     <div class="p-specs"><span>İri Göğüs</span><span>Kas Yapısı</span></div>
-                    <p>Hindilerde et verimi ve hızlı iskelet gelişimi için ideal rasyon.</p>
+                    <p>Hindilerde dengeli kas lifi oluşumu ve yüksek büyüme ivmesi sağlayan özel rasyon.</p>
                     <div class="p-footer">
-                        <button class="btn-p btn-details">DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Hindi yemi siparişi." class="btn-p btn-wa" target="_blank">SİPARİŞ</a>
+                        <button class="btn-p btn-details" onclick="openDetails('hindi')">TEKNİK DETAY</button>
+                        <a href="https://wa.me/905386610057?text=Hindi%20Gelişim%20Master%20yeminin%20hammaddeleri%20ve%20enerji%20değerleri%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lojistik -->
-    <section class="logistics" id="lojistik">
-        <h3>KONYA'NIN 31 İLÇESİNDEYİZ</h3>
-        <div class="district-wrap">
-            <span class="dist">MERAM</span><span class="dist">SELÇUKLU</span><span class="dist">KARATAY</span>
-            <span class="dist">EREĞLİ</span><span class="dist">AKŞEHİR</span><span class="dist">BEYŞEHİR</span>
-            <span class="dist">SEYDİŞEHİR</span><span class="dist">ILGIN</span><span class="dist">CİHANBEYLİ</span>
-            <span class="dist">KULU</span><span class="dist">ÇUMRA</span><span class="dist">KARAPINAR</span>
+    <!-- Detaylar Görünüm Popup Modal -->
+    <div class="modal-overlay" id="productDetailModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h4 id="m-title">Ürün Detayı</h4>
+                <button class="modal-close" onclick="closeDetails()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section-title">
+                    <i class="fas fa-bullseye"></i> Kullanım Amacı & Tanımı
+                </div>
+                <p class="modal-text-block" id="m-purpose"></p>
+
+                <div class="modal-section-title">
+                    <i class="fas fa-chart-bar"></i> Laboratuvar Analiz Değerleri
+                </div>
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Besin Değeri Ölçüsü</th>
+                            <th>Minimum / Maksimum Oranlar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="m-specs-table">
+                    </tbody>
+                </table>
+
+                <div class="modal-section-title">
+                    <i class="fas fa-seedling"></i> Kullanılan Seçkin Hammaddeler
+                </div>
+                <ul class="ingredients-list" id="m-ingredients">
+                </ul>
+
+                <div class="modal-section-title">
+                    <i class="fas fa-clipboard-list"></i> Doğru Besleme Önerileri
+                </div>
+                <p class="modal-text-block" style="border-left-color: var(--accent); margin-bottom: 0;" id="m-recommendations"></p>
+            </div>
         </div>
-        <p style="margin-top: 25px; font-size: 0.8rem; opacity: 0.6;">* Konya ili sınırları dışına gönderimimiz bulunmamaktadır.</p>
+    </div>
+
+    <!-- Şubemiz ve Konum Bilgisi (YENİLENMİŞ TAM ADRES) -->
+    <section class="branch-section" id="subemiz">
+        <div class="branch-container">
+            <h3>FİZİKSEL ŞUBEMİZDEN ELDEN SATIŞ</h3>
+            <p>Akgül Yem olarak adrese sevkiyat, nakliye veya kargo gönderimi yapmamaktayız. En taze rasyonlarla hazırlanan yemlerimizi Konya Meram'daki fiziki şubemizden elden teslim alabilirsiniz.</p>
+            
+            <div class="branch-card">
+                <div>
+                    <h4 style="font-family: 'Bebas Neue'; font-size: 1.8rem; color: var(--accent); margin-bottom: 20px;">ŞUBE BİLGİLERİ</h4>
+                    <ul class="branch-info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                <b>Tam Adres:</b><br>
+                                Bahçeşehir, Hasanköy Cd. No:231,<br>
+                                42100 Meram/Konya
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>
+                                <b>Çalışma Saatleri:</b><br>
+                                07:00 - 20:00<br>
+                                <b style="color: #ff4d4d;"><i class="fas fa-exclamation-triangle"></i> SALI GÜNLERİ KAPALIYIZ</b>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>
+                                <b>Telefon & İletişim:</b><br>
+                                0538 661 00 57
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-info-circle"></i>
+                            <span style="color: var(--accent); font-weight: 600;">Şubemize gelerek rasyonlarımızın tüm hammadde karışım analizlerini uzmanlarımızdan şeffafça inceleyebilirsiniz.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="branch-map-placeholder">
+                    <div class="map-bg-effect"></div>
+                    <div class="map-content">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h5 style="font-weight: 700; margin-bottom: 8px;">NAVİGASYON VE HARİTA</h5>
+                        <p style="font-size: 0.8rem; color: #cbd5e1;">Şubemize en hızlı rota ile ulaşmak için harita üzerinden yol tarifi alabilirsiniz.</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bahçeşehir,+Hasanköy+Cd.+No:231,+42100+Meram/Konya" target="_blank" class="btn-map">
+                            <i class="fas fa-location-arrow"></i> Google Maps'te Aç
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 25px; font-size: 0.8rem; opacity: 0.6; color: #94a3b8 !important;">* Konya sınırları içi veya dışı adrese teslim sevkiyat aracımız mevcut değildir. Tüm işlemler şubemizden gerçekleştirilmektedir.</p>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -594,19 +817,20 @@
                     <img src="sen.jpeg" alt="Logo" style="border-width: 1px;">
                     <h1 style="color: white; font-size: 1.8rem;">AKGÜL YEM</h1>
                 </div>
-                <p>Konya'da hayvancılığın modern yüzü. 30 yıllık tecrübemizi 2026 vizyonuyla birleştiriyoruz.</p>
+                <p>Konya'da hayvancılığın modern yüzü. 30 yıllık tecrübemizi şubemizde taze ve anlık hazırlanan yem kalitesiyle sizlere sunuyoruz.</p>
             </div>
             <div class="f-col">
-                <h4>İLETİŞİM</h4>
+                <h4>İLETİŞİM & ŞUBE</h4>
                 <ul>
                     <li><i class="fas fa-phone-alt"></i> 0538 661 00 57</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Meram / Konya</li>
-                    <li><i class="fas fa-clock"></i> 07:00 - 20:00 (Açığız)</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Bahçeşehir, Hasanköy Cd. No:231, Meram/Konya</li>
+                    <li><i class="fas fa-clock"></i> 07:00 - 20:00 (<b style="color: #ff4d4d;">Salı Kapalı</b>)</li>
+                    <li style="color: var(--accent); font-weight: 700;"><i class="fas fa-store-slash"></i> Sadece Şubeden Elden Satış</li>
                 </ul>
             </div>
         </div>
         <div style="text-align: center; margin-top: 50px; color: #444; font-size: 0.75rem; border-top: 1px solid #111; padding-top: 20px;">
-            &copy; 2026 Konya Akgül Yem San. ve Tic. A.Ş. | Sürüm 2026 Vision
+            &copy; 2026 Konya Akgül Yem San. ve Tic. A.Ş. | Sürüm 2026 Vision (Şubeden Teslimat Sürümü)
         </div>
     </footer>
 
@@ -617,20 +841,168 @@
                 <h4 style="font-size: 1.1rem;">Akgül Akıllı Uzman V2026</h4>
             </div>
             <div class="as-body" id="chatArea">
-                <div class="bubble bot">Selam! Ben Akgül Yem dijital danışmanıyım. Size 2026 standartlarında nasıl yardımcı olabilirim?</div>
-                <div class="bubble bot" style="background: #fee2e2; border: 1px solid #fecaca; font-weight: 700;">⚠️ UYARI: Kargo ağımız sadece KONYA ili ve ilçeleriyle sınırlıdır.</div>
+                <div class="bubble bot">Selam! Ben Akgül Yem dijital danışmanıyım. Size rasyonlarımız ve analizlerimiz hakkında bilgi sunmak için buradayım.</div>
+                <div class="bubble bot" style="background: #fee2e2; border: 1px solid #fecaca; color: #7f1d1d; font-weight: 700;">⚠️ ÖNEMLİ BİLGİLENDİRME: Adrese teslimat, nakliye, kargo veya sevkiyat hizmetimiz kesinlikle yoktur. Satışlarımız sadece Konya Meram'daki fiziki şubemizden elden teslim şeklinde yapılmaktadır.</div>
+                <div class="bubble bot" style="background: #fffbeb; border: 1px solid #fde68a; color: #78350f; font-weight: 700;">📅 HAFTALIK İZİN: Salı günleri kapalıyız. Diğer tüm günler 07:00 - 20:00 saatleri arasında şubemizden hizmet vermekteyiz.</div>
             </div>
             <div class="as-footer">
-                <div class="chip" onclick="expertChat('Fiyat listesi alabilir miyim?')">FİYATLAR</div>
-                <div class="chip" onclick="expertChat('Konya dışına gönderim var mı?')">SEVKİYAT</div>
-                <div class="chip" onclick="expertChat('Hangi yemi tercih etmeliyim?')">DANIŞMANLIK</div>
-                <div class="chip" onclick="expertChat('Sipariş vermek istiyorum.')">SİPARİŞ VER</div>
+                <div class="chip" onclick="expertChat('Yem rasyonlarınızın teknik özellikleri ve protein oranları nedir?')">YEM ÖZELLİKLERİ</div>
+                <div class="chip" onclick="expertChat('Şubenizin tam adresi ve konumu nedir?')">ŞUBE KONUMU</div>
+                <div class="chip" onclick="expertChat('Hangi günler ve hangi saatler arasında açıksınız?')">AÇIK GÜNLER / SAATLER</div>
+                <div class="chip" onclick="expertChat('Gelmeden önce ürünü ayırtabilir miyim?')">ÜRÜN REZERVASYONU</div>
             </div>
         </div>
         <div id="assistant-btn" onclick="toggleAsistan()">
             <i class="fas fa-headset"></i>
         </div>
     </div>
+
+    <script>
+        // --- DETAY MODAL VERİ TABANI ---
+        const productData = {
+            sut: {
+                title: "Akgül Süt 21 (Premium)",
+                purpose: "Yüksek verimli sağmal süt ineklerinin pik laktasyon (en yüksek süt verim) dönemleri boyunca tüm enerji ve protein dengesini korumak, süt yağı ve proteinini desteklemek amacıyla özel olarak rasyonlandırılmış laktasyon yemidir.",
+                specs: [
+                    { name: "Ham Protein", val: "%21,00 (Min)" },
+                    { name: "Metabolize Edilebilir Enerji", val: "2850 Kcal/kg (Min)" },
+                    { name: "Ham Selüloz", val: "%8,50 (Max)" },
+                    { name: "Ham Kül", val: "%9,00 (Max)" },
+                    { name: "Ham Yağ", val: "%3,00 (Min)" },
+                    { name: "Nişasta", val: "%24,00 (Min)" },
+                    { name: "Kalsiyum", val: "%1,20 (Min)" },
+                    { name: "Fosfor", val: "%0,60 (Min)" },
+                    { name: "Sodyum", val: "%0,40 (Min)" },
+                    { name: "Vitamin A", val: "15.000 IU/kg" },
+                    { name: "Vitamin D3", val: "3.000 IU/kg" }
+                ],
+                ingredients: ["Arpa Ezme", "Mısır Flake", "Soya Küspesi (%48 HP)", "Ayçiçeği Tohumu Küspesi", "Mısır Gluteni", "DDGS (Kurutulmuş Damıtık Dane)", "Kanola Küspesi", "Mineral-Vitamin Toksin Bağlayıcı Premiks"],
+                recommendations: "Süt ineklerine kuru kaba yemlerin (Mısır silajı, yonca ve saman) yanında rasyonun protein düzeyine göre dengelenerek verilmelidir. İneklerin önünde her zaman temiz ve serbest içilebilir su bulunmalıdır."
+            },
+            buzagi: {
+                title: "Buzağı Başlangıç Yemi",
+                purpose: "Yeni doğan buzağıların 2. haftasından itibaren işkembe (rumen) duvarındaki papilla gelişimini hızlandırmak, bağışıklık sistemini kuvvetlendirerek ishalleri önlemek amacıyla sindirilebilirliği en üst düzey hammaddelerle tasarlanmıştır.",
+                specs: [
+                    { name: "Ham Protein", val: "%18,00 (Min)" },
+                    { name: "Metabolize Edilebilir Enerji", val: "2900 Kcal/kg (Min)" },
+                    { name: "Ham Selüloz", val: "%7,00 (Max)" },
+                    { name: "Ham Kül", val: "%8,00 (Max)" },
+                    { name: "Ham Yağ", val: "%3,20 (Min)" },
+                    { name: "Kalsiyum", val: "%1,00 (Min)" },
+                    { name: "Fosfor", val: "%0,55 (Min)" },
+                    { name: "Sodyum", val: "%0,35 (Min)" },
+                    { name: "Aktif Canlı Maya (Sacc. Cerevisiae)", val: "Eklenmiştir" }
+                ],
+                ingredients: ["İnce Ezilmiş Mısır", "Özel İşlenmiş Arpa", "Soya Küspesi", "Melas (Şeker Pancarı)", "Kurutulmuş Şeker Pancarı Posası", "Canlı Maya Hücre Duvarı Katalizörü", "Kalsiyum Karbonat", "Vitamin-Mineral Kombinasyonu"],
+                recommendations: "Buzağıların önünde 2. haftadan itibaren serbest (ad-libitum) olarak bulundurulmalıdır. Kalitesiz kaba yemlerden kaçınılmalı, temiz buzağı bölmelerinde taze içme suyu ile beraber sunulmalıdır."
+            },
+            kuzu: {
+                title: "Premium Kuzu Besi Yemi",
+                purpose: "Sütten kesilen besi kuzularının hızlı kas ve kemik gelişim döneminde maksimum karkas randımanı elde etmek, böbrek ve idrar taşı (urolithiasis) oluşum risklerini asgariye indirmek üzere özel amonyum klorür dengeli besi rasyonudur.",
+                specs: [
+                    { name: "Ham Protein", val: "%16,00 (Min)" },
+                    { name: "Metabolize Edilebilir Enerji", val: "2800 Kcal/kg (Min)" },
+                    { name: "Ham Selüloz", val: "%8,00 (Max)" },
+                    { name: "Ham Kül", val: "%7,50 (Max)" },
+                    { name: "Ham Yağ", val: "%3,00 (Min)" },
+                    { name: "Kalsiyum", val: "%0,90 (Min)" },
+                    { name: "Fosfor", val: "%0,50 (Min)" },
+                    { name: "Amonyum Klorür (İdrar Taşı Önleyici)", val: "%0,50 dengeli" }
+                ],
+                ingredients: ["Arpa", "Mısır", "Buğday Kepeği", "Soya Küspesi", "Ayçiçeği Küspesi", "Mısır Gluteni", "Melas", "Mermer Tozu", "Kuzuya Özel İdrar Kanalı Koruyucu Mineral Premiksi"],
+                recommendations: "Kuzulara sütten kesimden kesim anına kadar kuru ve kaliteli yonca ile birlikte kontrollü olarak verilmelidir. Böbrek sağlığı için suyun temiz, sürekli ve ılık olmasına özen gösterilmelidir."
+            },
+            civciv: {
+                title: "Etlik Civciv Başlangıç Yemi",
+                purpose: "Etlik broiler civcivlerinin ilk 15 günlük kritik yaşam evresinde hücre bölünmesini, kas liflerinin kalınlaşmasını ve tüy oluşumunu desteklemek amacıyla yüksek metabolize edilebilir enerji ve yüksek sindirilebilir aminoasit konsantrasyonuyla hazırlanmış mikro pelet tam yemdir.",
+                specs: [
+                    { name: "Ham Protein", val: "%22,00 (Min)" },
+                    { name: "Metabolize Edilebilir Enerji", val: "3050 Kcal/kg (Min)" },
+                    { name: "Ham Selüloz", val: "%4,00 (Max)" },
+                    { name: "Ham Kül", val: "%6,50 (Max)" },
+                    { name: "Ham Yağ", val: "%4,00 (Min)" },
+                    { name: "Kalsiyum", val: "%1,00 (Min)" },
+                    { name: "Fosfor", val: "%0,70 (Min)" },
+                    { name: "Lizin / Metiyonin", val: "Dengelenmiş Aminoasitler" }
+                ],
+                ingredients: ["Mısır", "Soya Küspesi (%48 HP)", "Mısır Gluteni", "Özel Bitkisel Yağlar", "Monokalsiyum Fosfat (MCP)", "L-Lizin", "DL-Metiyonin", "Koksidiyostatik (Koruyucu)", "Kanatlı Vitamin Kompleksi"],
+                recommendations: "Civcivlerin ilk gününden itibaren 15. güne kadar başka hiçbir yem maddesi karıştırılmadan serbest olarak önlerinde bulundurulmalı, taze ve oda sıcaklığında su tedarik edilmelidir."
+            },
+            tavuk: {
+                title: "Gezen Tavuk Yumurta Yemi",
+                purpose: "Yumurtlama döneminde olan ve gezen tavukların yumurta verim periyodunu uzatmak, sert ve pürüzsüz kabuk kalitesini muhafaza etmek ve doğal hammadde özleriyle iştah açıcı doğal yumurta sarısı elde etmek amacıyla üretilmiştir.",
+                specs: [
+                    { name: "Ham Protein", val: "%17,00 (Min)" },
+                    { name: "Metabolize Edilebilir Enerji", val: "2750 Kcal/kg (Min)" },
+                    { name: "Ham Selüloz", val: "%5,00 (Max)" },
+                    { name: "Ham Kül", val: "%12,50 (Max)" },
+                    { name: "Ham Yağ", val: "%3,50 (Min)" },
+                    { name: "Kalsiyum", val: "%3,80 (Min)" },
+                    { name: "Fosfor", val: "%0,65 (Min)" },
+                    { name: "Metiyonin", val: "%0,38 (Min)" }
+                ],
+                ingredients: ["Mısır", "Sarı Buğday", "Arpa", "Soya Küspesi", "Ayçiçeği Küspesi", "Kalsiyum Karbonat (Mermer Granülü)", "Dikalsiyum Fosfat", "Doğal Ksantofil (Yumurta Sarısı Pigmenti)", "Kanatlı Katkı Mineralleri"],
+                recommendations: "Günlük tavuk başına ortalama 110-120 gr olacak şekilde yemliklerde sürekli sunulmalı, tavukların doğal gezinme alanlarındaki kalsiyum ihtiyacını destekleyen rasyon bütünlüğünü korumalıdır."
+            },
+            hindi: {
+                title: "Hindi Gelişim Master Yemi",
+                purpose: "Besi hindilerinin 8. haftadan kesim periyoduna kadar olan hızlı gelişim fazında yüksek et tutumu, geniş göğüs eti yapısı ve dayanıklı eklem/ayak kemik mimarisi oluşturması için zenginleştirilmiş makro gelişim yemidir.",
+                specs: [
+                    { name: "Ham Protein", val: "%20,00 (Min)" },
+                    { name: "Metabolize Edilebilir Enerji", val: "2950 Kcal/kg (Min)" },
+                    { name: "Ham Selüloz", val: "%5,00 (Max)" },
+                    { name: "Ham Kül", val: "%7,00 (Max)" },
+                    { name: "Ham Yağ", val: "%4,50 (Min)" },
+                    { name: "Kalsiyum", val: "%1,20 (Min)" },
+                    { name: "Fosfor", val: "%0,80 (Min)" },
+                    { name: "Sodyum", val: "%0,18 (Min)" }
+                ],
+                ingredients: ["Mısır", "Soya Küspesi", "Buğday", "Ayçiçeği Tohumu Küspesi", "Bitkisel Likit Yağlar", "Sentetik Aminoasitler (Lizin, Treonin)", "Hindiye Özel Vitamin-Mineral İz Element Paketi"],
+                recommendations: "Hindilerin hızlı gelişim aşamasında metabolizmaları çok hızlı çalıştığı için yemliklerin temiz ve sürekli dolu olmasına dikkat edilmeli, bol miktarda taze içme suyu bulundurulmalıdır."
+            }
+        };
+
+        function openDetails(key) {
+            const data = productData[key];
+            if (!data) return;
+
+            document.getElementById('m-title').innerText = data.title;
+            document.getElementById('m-purpose').innerText = data.purpose;
+            document.getElementById('m-recommendations').innerText = data.recommendations;
+
+            // Analiz tablosunu doldur
+            const specTable = document.getElementById('m-specs-table');
+            specTable.innerHTML = '';
+            data.specs.forEach(s => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td><b>${s.name}</b></td><td>${s.val}</td>`;
+                specTable.appendChild(tr);
+            });
+
+            // Hammaddeleri doldur
+            const ingList = document.getElementById('m-ingredients');
+            ingList.innerHTML = '';
+            data.ingredients.forEach(i => {
+                const li = document.createElement('li');
+                li.innerText = i;
+                ingList.appendChild(li);
+            });
+
+            document.getElementById('productDetailModal').style.display = 'flex';
+        }
+
+        function closeDetails() {
+            document.getElementById('productDetailModal').style.display = 'none';
+        }
+
+        // Modal dışına tıklandığında kapatma
+        window.onclick = function(event) {
+            const modal = document.getElementById('productDetailModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
     <script>
         // --- PRELOADER ---
@@ -671,22 +1043,27 @@
             setTimeout(() => {
                 const bMsg = document.createElement('div');
                 bMsg.className = 'bubble bot';
-                if(msg.includes('Konya dışına')) {
-                    bMsg.innerText = "Maalesef lojistik ağımız sadece Konya merkezi ve ilçeleriyle sınırlıdır. Diğer illere gönderimimiz yoktur.";
-                } else if(msg.includes('Sipariş')) {
-                    bMsg.innerText = "Siparişinizi 0538 661 00 57 numaralı hattımızdan arayarak veya WhatsApp üzerinden hemen verebilirsiniz.";
+                
+                const lowerMsg = msg.toLowerCase();
+                
+                if(lowerMsg.includes('sevkiyat') || lowerMsg.includes('kargo') || lowerMsg.includes('teslimat') || lowerMsg.includes('gönderim')) {
+                    bMsg.innerHTML = "Kesinlikle adrese <b>sevkiyatımız veya kargo gönderimimiz bulunmamaktadır</b>. Tüm müşterilerimiz şubemize gelerek yemlerimizi elden teslim almaktadır.";
+                } else if(lowerMsg.includes('konum') || lowerMsg.includes('adres')) {
+                    bMsg.innerHTML = "<b>Tam Adresimiz:</b> Bahçeşehir, Hasanköy Cd. No:231, 42100 Meram/Konya'dır. Detaylı yol tarifi için sitemizdeki harita butonuna tıklayarak Google Maps yönlendirmesini başlatabilirsiniz.";
+                } else if(lowerMsg.includes('saatler') || lowerMsg.includes('hangi günler') || lowerMsg.includes('salı')) {
+                    bMsg.innerHTML = "Şubemiz <b>haftanın 6 günü 07:00 - 20:00 saatleri arasında açıktır</b>. <b style='color: red;'>Salı günleri ise tamamen kapalıyız</b>. Planlamanızı buna göre yapmanızı önemle rica ederiz.";
+                } else if(lowerMsg.includes('rezervasyon') || lowerMsg.includes('ayırt') || lowerMsg.includes('gelmeden önce')) {
+                    bMsg.innerHTML = "Evet, şubemize gelmeden önce yolda mağdur olmamanız için 0538 661 00 57 numaralı telefondan bizi arayarak veya WhatsApp'tan yazarak adınıza rasyon ayırtabilirsiniz.";
+                } else if(lowerMsg.includes('fiyat') || lowerMsg.includes('rasyon') || lowerMsg.includes('özellikleri') || lowerMsg.includes('protein') || lowerMsg.includes('yem')) {
+                    bMsg.innerHTML = "Laboratuvarımızda taze hazırlanan yem rasyonlarımızın protein, enerji ve hammadde detaylarına ürün kartlarındaki <b>TEKNİK DETAY</b> butonlarına tıklayarak detaylıca ulaşabilirsiniz.";
                 } else {
-                    bMsg.innerText = "Size yardımcı olmaktan mutluluk duyarız. Konya'nın en kaliteli yemleri için doğru adrestesiniz!";
+                    bMsg.innerText = "Akgül Yem Meram şubemizden elden satış yapmaktadır. Güncel rasyon ve teknik detaylar için 0538 661 00 57 numaralı hattımızdan bizimle dilediğiniz an iletişime geçebilirsiniz.";
                 }
+                
                 area.appendChild(bMsg);
                 area.scrollTop = area.scrollHeight;
             }, 600);
             area.scrollTop = area.scrollHeight;
-        }
-
-        function openAssistant(msg) {
-            toggleAsistan();
-            expertChat(msg);
         }
     </script>
 </body>
