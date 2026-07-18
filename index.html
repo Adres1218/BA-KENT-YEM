@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Akgül Yem | Konya 2026 Vision - Sadece Şubeden Satış</title>
-    
-    <!-- External Assets -->
+    <title>Akgül Yem | Konya 2026 Vizyonu</title>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4205993272378357" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4205993272378357">
+    <meta name="description" content="Akgül Yem - Konya Meram'da en kaliteli yem çeşitleri. Süt yemi, buzağı yemi, kuzu besi, tavuk yemi, hindi yemi.">
+    <meta name="keywords" content="yem, konya yem, akgül yem, meram yem, süt yemi, buzağı yemi, kuzu yemi">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="sen.jpeg">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #1b5e20;
@@ -22,1049 +22,443 @@
             --danger: #d32f2f;
             --text-main: #1e293b;
             --text-light: #64748b;
-            --bg-site: #f8fafc;
+            --bg: #f8fafc;
             --white: #ffffff;
-            --card-shadow: 0 10px 30px -5px rgba(0,0,0,0.06), 0 4px 10px -5px rgba(0,0,0,0.03);
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 5px 20px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-site);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-        /* --- V2026 PRELOADER --- */
         #loader {
-            position: fixed;
-            inset: 0;
-            background: var(--secondary);
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s ease;
+            position: fixed; inset: 0; background: var(--secondary); z-index: 10000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.4s ease;
+        }
+        #loader h1 {
+            font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 12vw, 5rem);
+            color: var(--white); text-shadow: 0 0 30px rgba(255,214,0,0.3);
+            animation: loadPulse 1s ease infinite alternate;
+        }
+        @keyframes loadPulse { from { opacity: 0.6; } to { opacity: 1; } }
+        #loader p { color: var(--accent); font-size: 0.8rem; letter-spacing: 5px; margin-top: 10px; }
+
+        .bar {
+            background: var(--danger); color: var(--white); text-align: center; padding: 8px;
+            font-weight: 700; font-size: 0.75rem; position: sticky; top: 0; z-index: 1001;
+            text-transform: uppercase; letter-spacing: 1px;
         }
 
-        .letter-grid {
-            display: flex;
-            gap: clamp(5px, 2vw, 15px);
-            perspective: 1000px;
-        }
-
-        .letter {
-            font-family: 'Bebas Neue', cursive;
-            font-size: clamp(3rem, 15vw, 7rem);
-            color: var(--white);
-            opacity: 0;
-            transform: translateY(30px) rotateX(-90deg);
-            text-shadow: 0 0 20px rgba(255, 214, 0, 0.4);
-        }
-
-        .letter.active {
-            animation: letterArrival 0.5s forwards ease-out;
-        }
-
-        @keyframes letterArrival {
-            to { opacity: 1; transform: translateY(0) rotateX(0); }
-        }
-
-        .loader-version {
-            color: var(--accent);
-            font-weight: 700;
-            letter-spacing: 5px;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* --- EXCLUSIVE ONLY-STORE BAR --- */
-        .konya-bar {
-            background: var(--danger);
-            color: var(--white);
-            text-align: center;
-            padding: 12px 10px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            position: sticky;
-            top: 0;
-            z-index: 1001;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        /* --- MODERN HEADER --- */
         header {
-            position: sticky;
-            top: 43px; /* Konya barının altında kalması için */
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky; top: 35px; width: 100%; z-index: 1000;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(15px);
+            padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.04);
         }
+        @media (max-width:480px) { header { top: 55px; } .bar { font-size: 0.65rem; padding: 6px; } }
 
-        @media (max-width: 480px) {
-            header {
-                top: 67px; /* Küçük ekranlarda bar iki satıra taşarsa diye */
-            }
-        }
+        .nav { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--accent); object-fit: cover; }
+        .logo h1 { font-family: 'Bebas Neue', cursive; font-size: 1.6rem; color: var(--secondary); letter-spacing: 1px; }
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .menu { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .menu a { text-decoration: none; color: var(--secondary); font-weight: 600; font-size: 0.85rem; transition: var(--transition); }
+        .menu a:hover { color: var(--primary); }
+        .menu .btn { background: var(--primary); color: var(--white) !important; padding: 8px 18px; border-radius: 50px; font-size: 0.8rem; }
+        .menu .btn:hover { background: var(--primary-light); }
+        @media (max-width:768px) { .menu { display: none; } }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-area img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-            object-fit: cover;
-        }
-
-        .logo-area h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2rem;
-            color: var(--secondary);
-            letter-spacing: 1px;
-            line-height: 1;
-        }
-
-        .nav-desktop {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-desktop a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-desktop a:hover { color: var(--primary); }
-
-        .btn-call {
-            background: var(--primary);
-            color: var(--white) !important;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .btn-call:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        /* --- HERO 2026 --- */
         .hero {
-            height: 65vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: var(--white);
-            overflow: hidden;
-            text-align: center;
+            min-height: 70vh; display: flex; align-items: center; justify-content: center;
+            position: relative; color: var(--white); text-align: center; overflow: hidden;
         }
-
         .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('sen.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,25,47,0.8), rgba(27,94,32,0.45)), url('sen.jpeg');
+            background-size: cover; background-position: center; z-index: 1;
+            background-attachment: fixed;
+        }
+        .hero > * { position: relative; z-index: 2; }
+        .hero h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 15px; }
+        .hero h2 span { color: var(--accent); }
+        .hero p { font-size: 1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9; }
+        .hero .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .hero .btns a { padding: 12px 35px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: var(--transition); }
+        .hero .btns a:first-child { background: var(--accent); color: var(--secondary); }
+        .hero .btns a:last-child { border: 2px solid var(--white); color: var(--white); }
+        .hero .btns a:hover { transform: translateY(-2px); }
+        .hero-content { animation: heroUp 0.8s ease forwards; }
+        @keyframes heroUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .ads { text-align: center; padding: 8px 0; background: var(--bg); }
+
+        .stats { background: var(--secondary); padding: 35px 20px; text-align: center; }
+        .stats-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .stat h3 { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: var(--accent); }
+        .stat p { color: #94a3b8; font-size: 0.8rem; }
+        @media (max-width:768px) { .stats-inner { grid-template-columns: 1fr 1fr; } .stat h3 { font-size: 1.5rem; } }
+
+        .section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--secondary); text-transform: uppercase; }
+        .section-title .line { width: 60px; height: 4px; background: var(--accent); margin: 10px auto; border-radius: 2px; }
+
+        .grid { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.03); transition: var(--transition); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .card-img { height: 200px; background: #f0f7f0; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .card-img img { max-width: 80%; max-height: 80%; object-fit: contain; }
+        .card-img .e { font-size: 4rem; }
+        .card-body { padding: 18px; text-align: center; }
+        .card-body h3 { font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 8px; }
+        .card-body .specs { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; }
+        .card-body .specs span { background: #e8f5e9; padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; color: var(--primary); }
+        .card-body p { font-size: 0.8rem; color: var(--text-light); margin-bottom: 15px; }
+        .card-ftr { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .card-ftr button, .card-ftr a { padding: 10px; border-radius: 10px; font-weight: 700; font-size: 0.7rem; border: none; cursor: pointer; transition: var(--transition); text-decoration: none; text-align: center; }
+        .card-ftr .detay { background: var(--secondary); color: var(--white); }
+        .card-ftr .detay:hover { background: #132b4f; }
+        .card-ftr .iletisim { background: linear-gradient(135deg, var(--accent), #ff8f00); color: var(--secondary); }
+        .card-ftr .iletisim:hover { transform: scale(1.03); }
+
+        @media (max-width:768px) {
+            .grid { grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 10px; }
+            .card-img { height: 130px; padding: 10px; }
+            .card-img img { max-width: 70%; max-height: 70%; }
+            .card-img .e { font-size: 2.5rem; }
+            .card-body { padding: 10px; }
+            .card-body h3 { font-size: 0.85rem; }
+            .card-body p { display: none; }
+            .card-body .specs { font-size: 0.6rem; }
+            .card-ftr button, .card-ftr a { font-size: 0.6rem; padding: 8px 4px; }
+            .hero { min-height: 50vh; padding: 40px 20px; }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 25px;
+        .branch {
+            background: linear-gradient(135deg, var(--secondary), #0d1f3c); color: var(--white); text-align: center; padding: 60px 0;
         }
+        .branch h2 { font-family: 'Bebas Neue', cursive; font-size: 2rem; background: linear-gradient(135deg, var(--accent), #ff8f00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+        .branch-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .branch-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; text-align: left; margin-top: 25px; }
+        @media (max-width:768px) { .branch-card { grid-template-columns: 1fr; text-align: center; } }
+        .branch-info { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .branch-info li { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; }
+        @media (max-width:768px) { .branch-info li { justify-content: center; } }
+        .branch-info i { color: var(--accent); width: 20px; text-align: center; }
+        .branch-map { background: rgba(255,255,255,0.03); border-radius: 12px; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.1); }
+        .branch-map i { font-size: 2rem; color: var(--danger); margin-bottom: 8px; }
+        .branch-map a { background: var(--primary); color: var(--white); padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.8rem; margin-top: 8px; transition: var(--transition); }
+        .branch-map a:hover { background: var(--primary-light); }
 
-        .hero-content h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2rem, 8vw, 4rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+        .kadir-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 25px; max-width: 400px; margin: 0 auto 25px;
+            text-align: center; backdrop-filter: blur(5px);
         }
-
-        .hero-content h2 span { color: var(--accent); }
-
-        .hero-content p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-bottom: 35px;
-            font-weight: 400;
-            opacity: 0.95;
+        .kadir-card .avatar {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #ff8f00);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 36px; margin: 0 auto 10px;
         }
+        .kadir-card h3 { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; background: linear-gradient(135deg, var(--accent), #ff8f00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .kadir-card .title { color: #94a3b8; font-size: 0.8rem; }
+        .kadir-card .phone { color: var(--accent); font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; margin: 5px 0; }
 
-        /* --- V2026 PRODUCT GRID --- */
-        .products { padding: 80px 0; background: var(--bg-site); }
-        
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; font-family: 'Montserrat'; font-weight: 800; color: var(--secondary); text-transform: uppercase; }
-        .section-title .line { width: 60px; height: 5px; background: var(--accent); margin: 15px auto; border-radius: 5px; }
+        footer { background: #01040a; color: var(--white); padding: 50px 0 0; }
+        .footer-inner { max-width: 1000px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-inner h4 { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; background: linear-gradient(135deg, var(--accent), #ff8f00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 15px; }
+        .footer-inner p { color: #94a3b8; font-size: 0.85rem; }
+        .footer-inner li { list-style: none; color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .footer-bot { text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-bot p { color: #555; font-size: 0.7rem; }
+        .footer-bot .atlas { color: var(--accent); font-weight: 700; }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .modal {
+            position: fixed; inset: 0; background: rgba(10,25,47,0.7); backdrop-filter: blur(5px);
+            z-index: 5000; display: none; align-items: center; justify-content: center; padding: 20px;
         }
+        .modal-inner { background: var(--white); border-radius: 16px; max-width: 550px; width: 100%; max-height: 80vh; overflow-y: auto; }
+        .modal-head { padding: 18px 20px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); display: flex; justify-content: space-between; align-items: center; }
+        .modal-head h4 { font-size: 1rem; font-weight: 800; }
+        .modal-close { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; }
+        .modal-body { padding: 20px; }
+        .modal-body table { width: 100%; border-collapse: collapse; margin: 10px 0 15px; font-size: 0.85rem; }
+        .modal-body th, .modal-body td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #eee; }
+        .modal-body th { background: #f1f5f9; font-weight: 700; }
+        .modal-body .mtitle { font-weight: 700; color: var(--primary); margin: 10px 0 5px; border-bottom: 2px solid #e8f5e9; padding-bottom: 5px; }
+        .modal-body .mtext { background: #f8fafc; border-left: 3px solid var(--primary); padding: 12px; font-size: 0.85rem; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+        .modal-body .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+        .modal-body .tags span { background: #e8f5e9; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--primary); }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-inner { animation: zoomIn 0.3s ease; }
 
-        .p-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(0,0,0,0.02);
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
+        #scrollTop {
+            position: fixed; bottom: 80px; right: 15px; width: 38px; height: 38px;
+            background: var(--primary); border-radius: 50%; color: white; font-size: 16px;
+            border: none; cursor: pointer; z-index: 100; box-shadow: 0 5px 15px rgba(27,94,32,0.3);
+            opacity: 0; visibility: hidden; transition: var(--transition);
         }
+        #scrollTop.show { opacity: 1; visibility: visible; }
 
-        .p-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.07); }
-
-        .p-img-wrap {
-            height: 240px;
-            padding: 20px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        .kadir-popup {
+            position: fixed; inset: 0; background: rgba(10,25,47,0.7); backdrop-filter: blur(5px);
+            z-index: 99999; display: none; align-items: center; justify-content: center; padding: 20px;
         }
-
-        .p-img-wrap img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            transition: 0.5s;
+        .kadir-popup.show { display: flex; }
+        .kadir-popup-inner {
+            background: var(--white); border-radius: 20px; padding: 30px; max-width: 380px;
+            width: 100%; text-align: center; animation: zoomIn 0.3s ease;
         }
-
-        .p-info { padding: 20px; flex-grow: 1; text-align: center; }
-        .p-info h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; color: var(--secondary); }
-        .p-info p { font-size: 0.85rem; color: var(--text-light); margin-bottom: 15px; height: 45px; overflow: hidden; }
-
-        .p-specs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--primary);
+        .kadir-popup-inner .avatar {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #ff8f00);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px; margin: 0 auto 12px;
         }
-
-        .p-specs span { background: #e8f5e9; padding: 4px 10px; border-radius: 6px; }
-
-        .p-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-p { padding: 12px; border-radius: 12px; font-weight: 700; text-align: center; text-decoration: none; font-size: 0.75rem; transition: 0.3s; cursor: pointer; }
-        .btn-wa { background: #25D366; color: white; border: none; }
-        .btn-wa:hover { background: #20ba5a; }
-        .btn-details { background: var(--secondary); color: var(--white); border: none; }
-        .btn-details:hover { background: #132b4f; }
-
-        /* --- MOBILE GRID FIX (YAN YANA 2'LI) --- */
-        @media (max-width: 768px) {
-            header { top: 64px; } /* Mobil barda başlık payı */
-            .product-grid {
-                grid-template-columns: 1fr 1fr; /* MOBİLDE YAN YANA İKİLİ */
-                gap: 12px;
-                padding: 0 10px;
-            }
-
-            .p-card { border-radius: 12px; }
-            .p-img-wrap { height: 160px; padding: 10px; }
-            .p-info { padding: 12px; }
-            .p-info h3 { font-size: 0.9rem; margin-bottom: 5px; height: 35px; overflow: hidden; }
-            .p-info p { font-size: 0.7rem; height: 30px; margin-bottom: 10px; line-height: 1.2; display: none; }
-            .p-specs { gap: 5px; font-size: 0.6rem; margin-bottom: 10px; }
-            .p-specs span { padding: 2px 6px; }
-            .p-footer { gap: 5px; }
-            .btn-p { padding: 10px 4px; font-size: 0.6rem; border-radius: 8px; }
-            
-            .nav-desktop { display: none; }
-            .hero { height: 45vh; }
-            .hero-content h2 { font-size: 1.8rem; }
-            .section-title h2 { font-size: 1.6rem; }
+        .kadir-popup-inner h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 5px; }
+        .kadir-popup-inner p { color: var(--text-light); font-size: 0.85rem; margin-bottom: 5px; }
+        .kadir-popup-inner .num { background: #e8f5e9; border-radius: 12px; padding: 12px; margin: 12px 0; }
+        .kadir-popup-inner .num p { font-size: 1.4rem; font-weight: 900; color: var(--primary); letter-spacing: 2px; margin: 0; }
+        .kadir-popup-inner button {
+            background: var(--primary); color: white; border: none; padding: 10px 30px;
+            border-radius: 50px; font-weight: 700; cursor: pointer; transition: var(--transition); width: 100%;
         }
-
-        /* --- DETAYLAR POPUP MODAL (YENİ) --- */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(10, 25, 47, 0.7);
-            backdrop-filter: blur(8px);
-            z-index: 5000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-box {
-            background: var(--white);
-            border-radius: 24px;
-            width: 100%;
-            max-width: 650px;
-            max-height: 85vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            position: relative;
-            animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-header {
-            padding: 25px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid var(--accent);
-        }
-
-        .modal-header h4 { font-family: 'Montserrat'; font-size: 1.3rem; font-weight: 800; }
-        .modal-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; transition: 0.2s; }
-        .modal-close:hover { color: var(--accent); transform: scale(1.1); }
-
-        .modal-body { padding: 30px; }
-        
-        .spec-table { width: 100%; border-collapse: collapse; margin: 15px 0 25px; font-size: 0.9rem; }
-        .spec-table th, .spec-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        .spec-table th { background: #f1f5f9; color: var(--secondary); font-weight: 700; }
-        .spec-table tr:hover { background: #f8fafc; }
-
-        .modal-section-title { font-family: 'Montserrat'; font-weight: 700; font-size: 1.05rem; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e8f5e9; padding-bottom: 6px; }
-        
-        .modal-text-block { background: #f8fafc; border-left: 4px solid var(--primary); padding: 15px; border-radius: 0 12px 12px 0; font-size: 0.9rem; color: var(--text-main); margin-bottom: 25px; }
-
-        .ingredients-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-bottom: 25px; }
-        .ingredients-list li { background: #e8f5e9; color: var(--primary-light); font-size: 0.8rem; font-weight: 600; padding: 6px 12px; border-radius: 50px; border: 1px solid #c8e6c9; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-        /* --- ŞUBEMİZ VE İLETİŞİM BÖLÜMÜ --- */
-        .branch-section { padding: 80px 0; background: var(--secondary); color: var(--white); text-align: center; }
-        .branch-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .branch-section h3 { font-size: 2.2rem; font-family: 'Bebas Neue'; color: var(--accent); margin-bottom: 15px; letter-spacing: 1px; }
-        .branch-section p { max-width: 700px; margin: 0 auto 40px; color: #94a3b8; font-size: 1rem; }
-        
-        .branch-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-            text-align: left;
-        }
-
-        @media (max-width: 768px) {
-            .branch-card { grid-template-columns: 1fr; padding: 25px; gap: 25px; text-align: center; }
-        }
-
-        .branch-info-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
-        .branch-info-list li { display: flex; align-items: flex-start; gap: 15px; font-size: 1rem; }
-        @media (max-width: 768px) { .branch-info-list li { justify-content: center; align-items: center; } }
-        .branch-info-list i { font-size: 1.4rem; color: var(--accent); width: 30px; text-align: center; margin-top: 3px; }
-        @media (max-width: 768px) { .branch-info-list i { margin-top: 0; } }
-
-        .branch-map-placeholder {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            height: 280px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed rgba(255,255,255,0.15);
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
-        }
-
-        .map-bg-effect {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle, rgba(27,94,32,0.15) 0%, rgba(10,25,47,0.4) 100%);
-            z-index: 1;
-        }
-
-        .map-content { position: relative; z-index: 2; text-align: center; padding: 20px; }
-        .map-content i { font-size: 3rem; color: var(--danger); margin-bottom: 15px; text-shadow: 0 0 15px rgba(211, 47, 47, 0.4); }
-
-        .btn-map {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(27, 94, 32, 0.3);
-        }
-        .btn-map:hover { background: var(--primary-light); transform: translateY(-2px); }
-
-        /* --- AKILLI ASİSTAN --- */
-        #assistant {
-            position: fixed;
-            bottom: 25px;
-            right: 20px;
-            z-index: 2000;
-        }
-
-        #assistant-btn {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(27, 94, 32, 0.3);
-            border: 3px solid var(--white);
-        }
-
-        #assistant-panel {
-            position: absolute;
-            bottom: 75px;
-            right: 0;
-            width: min(450px, 92vw);
-            height: min(650px, 80vh);
-            background: var(--white);
-            border-radius: 25px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            border: 1px solid #eee;
-            animation: slideInUp 0.4s ease;
-        }
-
-        .as-head {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 25px;
-            text-align: center;
-        }
-
-        .as-body {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background: #fdfdfd;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .bubble { padding: 14px 18px; border-radius: 18px; font-size: 0.9rem; max-width: 85%; }
-        .bot { background: #f1f5f9; color: var(--secondary); border-bottom-left-radius: 4px; }
-        .user { background: var(--primary); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
-
-        .as-footer {
-            padding: 15px;
-            background: var(--white);
-            border-top: 1px solid #eee;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .chip {
-            padding: 10px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        /* --- FOOTER --- */
-        footer { background: #01040a; color: var(--white); padding: 80px 0 40px; }
-        .footer-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-            padding: 0 25px;
-        }
-        .f-col h4 { font-family: 'Bebas Neue'; font-size: 2.2rem; color: var(--accent); margin-bottom: 25px; }
-        .f-col p { color: #94a3b8; font-size: 0.9rem; }
-        .f-col li { margin-bottom: 12px; color: #cbd5e1; display: flex; align-items: center; gap: 12px; font-size: 0.9rem; list-style: none; }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        .kadir-popup-inner button:hover { background: var(--primary-light); }
+        .kadir-popup-inner .credit { font-size: 0.65rem; color: #94a3b8; margin-top: 12px; }
+        .kadir-popup-inner .credit span { color: var(--accent); font-weight: 700; }
     </style>
 </head>
 <body>
 
-    <!-- Harf Harf Gelen 2026 Preloader -->
     <div id="loader">
-        <div class="letter-grid" id="letterContainer">
-            <!-- JS ile doldurulacak -->
-        </div>
-        <div class="loader-version">Akgül Yem - Sürüm 2026.1.0</div>
+        <h1>AKGÜL YEM</h1>
+        <p>2026 VİZYONU</p>
     </div>
 
-    <!-- Exclusive Only-Store Strip -->
-    <div class="konya-bar">
-        <i class="fas fa-store"></i> SATIŞLARIMIZ SADECE <b>MERAM ŞUBEMİZDEN</b> YAPILMAKTADIR. SEVKİYAT YOKTUR! <span style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: 900; color: #fff;"><i class="fas fa-calendar-times"></i> SALI GÜNLERİ KAPALIYIZ</span>
+    <div class="bar">
+        <i class="fas fa-store"></i> SATIŞLAR SADECE MERAM ŞUBEMİZDEN - SEVKİYAT YOK &nbsp;|&nbsp; <i class="fas fa-calendar-times"></i> SALI KAPALI
     </div>
 
-    <!-- Header -->
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo-area">
-                <img src="sen.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/45?text=AY'">
-                <div class="logo-text"><h1>AKGÜL YEM</h1></div>
+        <div class="nav">
+            <a href="#" class="logo">
+                <img src="sen.jpeg" alt="Akgül Yem" onerror="this.outerHTML='<span style=font-size:28px>🌾</span>'">
+                <h1>AKGÜL YEM</h1>
             </a>
-            
-            <nav class="nav-desktop">
+            <nav class="menu">
                 <a href="#anasayfa">ANA SAYFA</a>
-                <a href="#urunler">ÜRÜNLERİMİZ</a>
-                <a href="#subemiz">ŞUBEMİZ & KONUM</a>
-                <a href="https://wa.me/905386610057?text=Akgül%20Yem%20ürünleri%20hakkında%20teknik%20bilgi%20ve%20güncel%20fiyat%20listesini%20almak%20istiyorum." class="btn-call" target="_blank">
-                    <i class="fab fa-whatsapp"></i> RASYON & FİYAT DANIŞMA
-                </a>
+                <a href="#urunler">ÜRÜNLER</a>
+                <a href="#subemiz">ŞUBE</a>
+                <a href="#" class="btn" onclick="event.preventDefault();showKadir()"><i class="fas fa-phone-alt"></i> BİLGİ AL</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- AdSense 1 - Display -->
+    <div class="ads">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4205993272378357" data-ad-slot="2896523975" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <section class="hero" id="anasayfa">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <h2 class="animate__animated animate__fadeInDown">KONYA'NIN <span>2026</span> VİZYON YEMİ</h2>
-            <p class="animate__animated animate__fadeInUp">Maksimum verim odaklı profesyonel besleme rasyonları. Sadece Meram şubemizden doğrudan elden teslim!</p>
-            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <a href="#urunler" class="btn-call" style="background: var(--accent); color: var(--secondary) !important; padding: 15px 40px; font-weight: 800;">ÜRÜNLERİMİZ</a>
-                <a href="#subemiz" class="btn-call" style="background: transparent; border: 2px solid white; padding: 15px 40px;">ŞUBE YOL TARİFİ</a>
+            <h2>KONYA'NIN <span>2026</span> VİZYON YEMİ</h2>
+            <p>Maksimum verim odaklı profesyonel besleme rasyonları. Sadece Meram şubemizden elden teslim.</p>
+            <div class="btns">
+                <a href="#urunler">ÜRÜNLER</a>
+                <a href="#subemiz">ŞUBE</a>
             </div>
         </div>
     </section>
 
-    <!-- Ürünler -->
-    <section class="products" id="urunler">
+    <div class="stats">
+        <div class="stats-inner">
+            <div class="stat"><h3><span class="counter" data-target="30">0</span>+</h3><p>Yıllık Tecrübe</p></div>
+            <div class="stat"><h3><span class="counter" data-target="50">0</span>+</h3><p>Yem Çeşidi</p></div>
+            <div class="stat"><h3><span class="counter" data-target="15000">0</span>+</h3><p>Mutlu Müşteri</p></div>
+            <div class="stat"><h3>%<span class="counter" data-target="100">0</span></h3><p>Memnuniyet</p></div>
+        </div>
+    </div>
+
+    <section class="section" id="urunler">
         <div class="section-title">
-            <h2>PROFESYONEL YEMLERİMİZ</h2>
-            <p style="text-align: center; color: var(--text-light); font-size: 0.95rem; margin-top: -10px;">Ürünlerimizi Meram şubemizden inceleyerek elden teslim alabilirsiniz.</p>
+            <h2>YEM ÇEŞİTLERİMİZ</h2>
+            <p style="color:var(--text-light);font-size:0.9rem;margin-top:5px;">Meram şubemizden elden teslim</p>
             <div class="line"></div>
         </div>
-
-        <div class="product-grid">
-            <!-- P1: Süt Yemi (s.jpeg) -->
-            <div class="p-card">
-                <div class="p-img-wrap"><img src="s.jpeg" alt="Akgül Süt 21" onerror="this.src='https://via.placeholder.com/200?text=Akg%C3%BCl+S%C3%BCt+21'"></div>
-                <div class="p-info">
-                    <h3>Akgül Süt 21 (Premium)</h3>
-                    <div class="p-specs"><span>%21 Protein</span><span>2850 Kcal</span></div>
-                    <p>Yüksek süt verimi ve optimal tereyağı rasyonu için dengelenmiş rasyon.</p>
-                    <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openDetails('sut')">TEKNİK DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Akgül%20Süt%2021%20yemi%20hakkında%20teknik%20bilgi%20ve%20güncel%20çorba/rasyon%20değerlerini%20öğrenmek%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- P2: Buzağı Yemi (d.jpeg) -->
-            <div class="p-card">
-                <div class="p-img-wrap"><img src="d.jpeg" alt="Buzağı Başlangıç" onerror="this.src='https://via.placeholder.com/200?text=Buza%C4%9F%C4%B1+Ba%C5%9Flang%C4%B1%C3%A7'"></div>
-                <div class="p-info">
-                    <h3>Buzağı Başlangıç Yemi</h3>
-                    <div class="p-specs"><span>%18 Protein</span><span>Hızlı Gelişim</span></div>
-                    <p>İşkembe gelişimini hızlandıran ve bağışıklığı güçlendiren özel maya katkısı.</p>
-                    <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openDetails('buzagi')">TEKNİK DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Buzağı%20Başlangıç%20yemi%20hakkında%20besleme%20programı%20ve%20teknik%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- P3: Kuzu Yemi (g.jpeg) -->
-            <div class="p-card">
-                <div class="p-img-wrap"><img src="g.jpeg" alt="Kuzu Besi" onerror="this.src='https://via.placeholder.com/200?text=Kuzu+Besi'"></div>
-                <div class="p-info">
-                    <h3>Premium Kuzu Besi</h3>
-                    <div class="p-specs"><span>Hızlı Kilo</span><span>Karkas Kalitesi</span></div>
-                    <p>Kuzularda erken kesim ağırlığı, sağlıklı kemik gelişimi ve yüksek karkas verimi.</p>
-                    <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openDetails('kuzu')">TEKNİK DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Premium%20Kuzu%20Besi%20yeminin%20mineralleri%20ve%20güncel%20besleme%20periyodu%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- P4: Civciv Yemi (h.jpeg) -->
-            <div class="p-card">
-                <div class="p-img-wrap"><img src="h.jpeg" alt="Civciv Başlangıç" onerror="this.src='https://via.placeholder.com/200?text=Civciv+Ba%C5%9Flang%C4%B1%C3%A7'"></div>
-                <div class="p-info">
-                    <h3>Etlik Civciv Başlangıç</h3>
-                    <div class="p-specs"><span>%22 Protein</span><span>İlk 15 Gün</span></div>
-                    <p>Yavruların hayata sağlıklı ve yüksek iskelet direnciyle başlaması için aminoasit zengini.</p>
-                    <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openDetails('civciv')">TEKNİK DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Etlik%20Civciv%20Başlangıç%20yeminin%20aminoasit%20profilleri%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- P5: Tavuk Yemi (f.jpeg) -->
-            <div class="p-card">
-                <div class="p-img-wrap"><img src="f.jpeg" alt="Yumurta Tavuk" onerror="this.src='https://via.placeholder.com/200?text=Yumurta+Tavuk'"></div>
-                <div class="p-info">
-                    <h3>Gezen Tavuk Yumurta</h3>
-                    <div class="p-specs"><span>Doğal Sarılık</span><span>Kalsiyum+</span></div>
-                    <p>Yumurta kalitesini zirveye çıkaran kalsiyum ve kabuk direnç katkılı formül.</p>
-                    <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openDetails('tavuk')">TEKNİK DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Gezen%20Tavuk%20Yumurta%20yeminin%20kalsiyum%20ve%20pigment%20oranları%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- P6: Hindi Yemi (a.jpeg) -->
-            <div class="p-card">
-                <div class="p-img-wrap"><img src="a.jpeg" alt="Hindi Gelişim" onerror="this.src='https://via.placeholder.com/200?text=Hindi+Geli%C5%9Fim'"></div>
-                <div class="p-info">
-                    <h3>Hindi Gelişim Master</h3>
-                    <div class="p-specs"><span>İri Göğüs</span><span>Kas Yapısı</span></div>
-                    <p>Hindilerde dengeli kas lifi oluşumu ve yüksek büyüme ivmesi sağlayan özel rasyon.</p>
-                    <div class="p-footer">
-                        <button class="btn-p btn-details" onclick="openDetails('hindi')">TEKNİK DETAY</button>
-                        <a href="https://wa.me/905386610057?text=Hindi%20Gelişim%20Master%20yeminin%20hammaddeleri%20ve%20enerji%20değerleri%20hakkında%20bilgi%20almak%20istiyorum." class="btn-p btn-wa" target="_blank">BİLGİ AL</a>
-                    </div>
-                </div>
-            </div>
+        <div class="grid">
+            <div class="card"><div class="card-img"><img src="s.jpeg" alt="Süt Yemi" onerror="this.style.display='none'"></div><div class="card-body"><h3>Akgül Süt 21</h3><div class="specs"><span>%21 Protein</span><span>2850 Kcal</span></div><p>Süt inekleriniz için özel formül. Laktasyon döneminde yüksek süt verimi ve kaliteli içerik için dengelenmiş protein-enerji dengesi. Kaba yemle desteklenmeli.</p><div class="card-ftr"><button class="detay" onclick="openDetay('sut')">DETAY</button><a href="tel:+905054315002" class="iletisim">📞 ARA</a></div></div></div>
+            <div class="card"><div class="card-img"><img src="d.jpeg" alt="Buzağı Yemi" onerror="this.style.display='none'"></div><div class="card-body"><h3>Buzağı Başlangıç</h3><div class="specs"><span>%18 Protein</span><span>Hızlı Gelişim</span></div><p>2. haftadan itibaren buzağılar için ideal başlangıç yemi. İşkembe gelişimini destekler, bağışıklık sistemini güçlendirir. Canlı maya katkılı özel formül.</p><div class="card-ftr"><button class="detay" onclick="openDetay('buzagi')">DETAY</button><a href="tel:+905054315002" class="iletisim">📞 ARA</a></div></div></div>
+            <div class="card"><div class="card-img"><img src="g.jpeg" alt="Kuzu Yemi" onerror="this.style.display='none'"></div><div class="card-body"><h3>Premium Kuzu Besi</h3><div class="specs"><span>Hızlı Kilo</span><span>Karkas</span></div><p>Sütten kesilen kuzularda hızlı kas gelişimi ve kaliteli karkas için özel rasyon. Erken kesim ağırlığına ulaşmayı sağlar. Kuru yonca ile kontrollü verilmeli.</p><div class="card-ftr"><button class="detay" onclick="openDetay('kuzu')">DETAY</button><a href="tel:+905054315002" class="iletisim">📞 ARA</a></div></div></div>
+            <div class="card"><div class="card-img"><img src="h.jpeg" alt="Civciv Yemi" onerror="this.style.display='none'"></div><div class="card-body"><h3>Etlik Civciv</h3><div class="specs"><span>%22 Protein</span><span>İlk 15 Gün</span></div><p>Broiler civcivler için ilk 15 gün mikro pelet yem. Yüksek aminoasit içeriği ile sağlıklı gelişim. İlk günden itibaren serbest olarak verilebilir.</p><div class="card-ftr"><button class="detay" onclick="openDetay('civciv')">DETAY</button><a href="tel:+905054315002" class="iletisim">📞 ARA</a></div></div></div>
+            <div class="card"><div class="card-img"><img src="f.jpeg" alt="Tavuk Yemi" onerror="this.style.display='none'"></div><div class="card-body"><h3>Gezen Tavuk</h3><div class="specs"><span>Doğal Sarılık</span><span>Kalsiyum+</span></div><p>Yumurta verimi ve kabuk kalitesi için kalsiyum zengini formül. Doğal sarılık için ksantofil katkılı. Tavuk başına günlük 110-120 gr tavsiye edilir.</p><div class="card-ftr"><button class="detay" onclick="openDetay('tavuk')">DETAY</button><a href="tel:+905054315002" class="iletisim">📞 ARA</a></div></div></div>
+            <div class="card"><div class="card-img"><img src="a.jpeg" alt="Hindi Yemi" onerror="this.style.display='none'"></div><div class="card-body"><h3>Hindi Gelişim</h3><div class="specs"><span>İri Göğüs</span><span>Kas</span></div><p>8. haftadan kesime kadar hindi gelişimi için protein-enerji zengini yem. Yüksek et tutumu ve göğüs gelişimi sağlar. Temiz yemlikte sürekli dolu bulundurulmalı.</p><div class="card-ftr"><button class="detay" onclick="openDetay('hindi')">DETAY</button><a href="tel:+905054315002" class="iletisim">📞 ARA</a></div></div></div>
         </div>
     </section>
 
-    <!-- Detaylar Görünüm Popup Modal -->
-    <div class="modal-overlay" id="productDetailModal">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h4 id="m-title">Ürün Detayı</h4>
-                <button class="modal-close" onclick="closeDetails()">&times;</button>
-            </div>
+    <!-- AdSense 2 - Fluid -->
+    <div class="ads">
+        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-e6-10+2p+a-3h" data-ad-client="ca-pub-4205993272378357" data-ad-slot="5307185030"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="modal" id="detayModal">
+        <div class="modal-inner">
+            <div class="modal-head"><h4 id="dtitle">Detay</h4><button class="modal-close" onclick="kapatDetay()">&times;</button></div>
             <div class="modal-body">
-                <div class="modal-section-title">
-                    <i class="fas fa-bullseye"></i> Kullanım Amacı & Tanımı
-                </div>
-                <p class="modal-text-block" id="m-purpose"></p>
-
-                <div class="modal-section-title">
-                    <i class="fas fa-chart-bar"></i> Laboratuvar Analiz Değerleri
-                </div>
-                <table class="spec-table">
-                    <thead>
-                        <tr>
-                            <th>Besin Değeri Ölçüsü</th>
-                            <th>Minimum / Maksimum Oranlar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="m-specs-table">
-                    </tbody>
-                </table>
-
-                <div class="modal-section-title">
-                    <i class="fas fa-seedling"></i> Kullanılan Seçkin Hammaddeler
-                </div>
-                <ul class="ingredients-list" id="m-ingredients">
-                </ul>
-
-                <div class="modal-section-title">
-                    <i class="fas fa-clipboard-list"></i> Doğru Besleme Önerileri
-                </div>
-                <p class="modal-text-block" style="border-left-color: var(--accent); margin-bottom: 0;" id="m-recommendations"></p>
+                <div class="mtitle"><i class="fas fa-bullseye"></i> Kullanım Amacı</div>
+                <div class="mtext" id="dpurpose"></div>
+                <div class="mtitle"><i class="fas fa-chart-bar"></i> Analiz Değerleri</div>
+                <table><thead><tr><th>Besin Değeri</th><th>Oran</th></tr></thead><tbody id="dspecs"></tbody></table>
+                <div class="mtitle"><i class="fas fa-seedling"></i> Hammaddeler</div>
+                <div class="tags" id="dingredients"></div>
+                <div class="mtitle"><i class="fas fa-clipboard-list"></i> Öneriler</div>
+                <div class="mtext" style="border-left-color:var(--accent);" id="drec"></div>
             </div>
         </div>
     </div>
 
-    <!-- Şubemiz ve Konum Bilgisi (YENİLENMİŞ TAM ADRES) -->
-    <section class="branch-section" id="subemiz">
-        <div class="branch-container">
-            <h3>FİZİKSEL ŞUBEMİZDEN ELDEN SATIŞ</h3>
-            <p>Akgül Yem olarak adrese sevkiyat, nakliye veya kargo gönderimi yapmamaktayız. En taze rasyonlarla hazırlanan yemlerimizi Konya Meram'daki fiziki şubemizden elden teslim alabilirsiniz.</p>
-            
+    <!-- AdSense 3 - Autorelaxed -->
+    <div class="ads">
+        <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-4205993272378357" data-ad-slot="5435057405"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="branch" id="subemiz">
+        <div class="branch-inner">
+            <h2>MERAM ŞUBEMİZ</h2>
+            <p style="color:#94a3b8;font-size:0.9rem;">Adrese teslimat yoktur. Tüm satışlar fiziki şubemizden elden yapılmaktadır.</p>
+
+            <div class="kadir-card">
+                <div class="avatar">👨‍🌾</div>
+                <h3>KADİR</h3>
+                <p class="title">Yem Uzmanı & İşletme Sahibi</p>
+                <p class="phone">0505 431 50 02</p>
+                <p style="color:#94a3b8;font-size:0.75rem;"><i class="fas fa-check-circle" style="color:var(--accent);"></i> 30 yıllık tecrübe ile doğru yemi seçin</p>
+            </div>
+
             <div class="branch-card">
                 <div>
-                    <h4 style="font-family: 'Bebas Neue'; font-size: 1.8rem; color: var(--accent); margin-bottom: 20px;">ŞUBE BİLGİLERİ</h4>
-                    <ul class="branch-info-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>
-                                <b>Tam Adres:</b><br>
-                                Bahçeşehir, Hasanköy Cd. No:231,<br>
-                                42100 Meram/Konya
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>
-                                <b>Çalışma Saatleri:</b><br>
-                                07:00 - 20:00<br>
-                                <b style="color: #ff4d4d;"><i class="fas fa-exclamation-triangle"></i> SALI GÜNLERİ KAPALIYIZ</b>
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>
-                                <b>Telefon & İletişim:</b><br>
-                                0538 661 00 57
-                            </span>
-                        </li>
-                        <li>
-                            <i class="fas fa-info-circle"></i>
-                            <span style="color: var(--accent); font-weight: 600;">Şubemize gelerek rasyonlarımızın tüm hammadde karışım analizlerini uzmanlarımızdan şeffafça inceleyebilirsiniz.</span>
-                        </li>
+                    <h4 style="font-family:'Bebas Neue',cursive;font-size:1.5rem;background:linear-gradient(135deg,var(--accent),#ff8f00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;">ŞUBE BİLGİLERİ</h4>
+                    <ul class="branch-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bahçeşehir, Hasanköy Cd. No:231, Meram/Konya</li>
+                        <li><i class="fas fa-clock"></i> 07:00 - 20:00 <span style="color:#ff4d4d;font-weight:700;">(Salı Kapalı)</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span style="color:var(--accent);font-weight:700;">0505 431 50 02</span></li>
                     </ul>
                 </div>
-                
-                <div class="branch-map-placeholder">
-                    <div class="map-bg-effect"></div>
-                    <div class="map-content">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h5 style="font-weight: 700; margin-bottom: 8px;">NAVİGASYON VE HARİTA</h5>
-                        <p style="font-size: 0.8rem; color: #cbd5e1;">Şubemize en hızlı rota ile ulaşmak için harita üzerinden yol tarifi alabilirsiniz.</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Bahçeşehir,+Hasanköy+Cd.+No:231,+42100+Meram/Konya" target="_blank" class="btn-map">
-                            <i class="fas fa-location-arrow"></i> Google Maps'te Aç
-                        </a>
-                    </div>
+                <div class="branch-map">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p style="color:#94a3b8;font-size:0.8rem;">Google Maps ile yol tarifi</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Bah%C3%A7e%C5%9Fehir,+Hasank%C3%B6y+Cd.+No:231,+42100+Meram/Konya" target="_blank"><i class="fas fa-location-arrow"></i> Yol Tarifi</a>
                 </div>
             </div>
-            
-            <p style="margin-top: 25px; font-size: 0.8rem; opacity: 0.6; color: #94a3b8 !important;">* Konya sınırları içi veya dışı adrese teslim sevkiyat aracımız mevcut değildir. Tüm işlemler şubemizden gerçekleştirilmektedir.</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="f-col">
-                <div class="logo-area" style="margin-bottom: 20px;">
-                    <img src="sen.jpeg" alt="Logo" style="border-width: 1px;">
-                    <h1 style="color: white; font-size: 1.8rem;">AKGÜL YEM</h1>
-                </div>
-                <p>Konya'da hayvancılığın modern yüzü. 30 yıllık tecrübemizi şubemizde taze ve anlık hazırlanan yem kalitesiyle sizlere sunuyoruz.</p>
+        <div class="footer-inner">
+            <div>
+                <h4>AKGÜL YEM</h4>
+                <p>Konya'da hayvancılığın modern yüzü. 30 yıllık tecrübe.</p>
             </div>
-            <div class="f-col">
-                <h4>İLETİŞİM & ŞUBE</h4>
+            <div>
+                <h4>İLETİŞİM</h4>
                 <ul>
-                    <li><i class="fas fa-phone-alt"></i> 0538 661 00 57</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Bahçeşehir, Hasanköy Cd. No:231, Meram/Konya</li>
-                    <li><i class="fas fa-clock"></i> 07:00 - 20:00 (<b style="color: #ff4d4d;">Salı Kapalı</b>)</li>
-                    <li style="color: var(--accent); font-weight: 700;"><i class="fas fa-store-slash"></i> Sadece Şubeden Elden Satış</li>
+                    <li><i class="fas fa-user-tie"></i> <b style="color:var(--accent);">KADİR</b> - Yem Uzmanı</li>
+                    <li><i class="fas fa-phone-alt"></i> <span style="color:var(--accent);font-weight:700;">0505 431 50 02</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Bahçeşehir, Hasanköy Cd. No:231, Meram</li>
+                    <li><i class="fas fa-clock"></i> 07:00-20:00 (Salı Kapalı)</li>
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; color: #444; font-size: 0.75rem; border-top: 1px solid #111; padding-top: 20px;">
-            &copy; 2026 Konya Akgül Yem San. ve Tic. A.Ş. | Sürüm 2026 Vision (Şubeden Teslimat Sürümü)
+        <div class="footer-bot">
+            <p>👨‍🌾 <b style="color:var(--accent);">KADİR</b> | 0505 431 50 02</p>
+            <p style="margin-top:5px;">Site Yapımcı: <span class="atlas">ATLAS</span> &copy; 2026 Akgül Yem</p>
         </div>
     </footer>
 
-    <!-- Akıllı Asistan -->
-    <div id="assistant">
-        <div id="assistant-panel">
-            <div class="as-head">
-                <h4 style="font-size: 1.1rem;">Akgül Akıllı Uzman V2026</h4>
+    <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+    <div class="kadir-popup" id="kadirPopup" onclick="if(event.target===this)hideKadir()">
+        <div class="kadir-popup-inner">
+            <div class="avatar">👨‍🌾</div>
+            <h3>KADİR</h3>
+            <p>Yem Uzmanı & İşletme Sahibi</p>
+            <div class="num">
+                <p>0505 431 50 02</p>
             </div>
-            <div class="as-body" id="chatArea">
-                <div class="bubble bot">Selam! Ben Akgül Yem dijital danışmanıyım. Size rasyonlarımız ve analizlerimiz hakkında bilgi sunmak için buradayım.</div>
-                <div class="bubble bot" style="background: #fee2e2; border: 1px solid #fecaca; color: #7f1d1d; font-weight: 700;">⚠️ ÖNEMLİ BİLGİLENDİRME: Adrese teslimat, nakliye, kargo veya sevkiyat hizmetimiz kesinlikle yoktur. Satışlarımız sadece Konya Meram'daki fiziki şubemizden elden teslim şeklinde yapılmaktadır.</div>
-                <div class="bubble bot" style="background: #fffbeb; border: 1px solid #fde68a; color: #78350f; font-weight: 700;">📅 HAFTALIK İZİN: Salı günleri kapalıyız. Diğer tüm günler 07:00 - 20:00 saatleri arasında şubemizden hizmet vermekteyiz.</div>
-            </div>
-            <div class="as-footer">
-                <div class="chip" onclick="expertChat('Yem rasyonlarınızın teknik özellikleri ve protein oranları nedir?')">YEM ÖZELLİKLERİ</div>
-                <div class="chip" onclick="expertChat('Şubenizin tam adresi ve konumu nedir?')">ŞUBE KONUMU</div>
-                <div class="chip" onclick="expertChat('Hangi günler ve hangi saatler arasında açıksınız?')">AÇIK GÜNLER / SAATLER</div>
-                <div class="chip" onclick="expertChat('Gelmeden önce ürünü ayırtabilir miyim?')">ÜRÜN REZERVASYONU</div>
-            </div>
-        </div>
-        <div id="assistant-btn" onclick="toggleAsistan()">
-            <i class="fas fa-headset"></i>
+            <p style="font-size:0.8rem;color:var(--text-light);margin-bottom:12px;">30 yıllık tecrübe ile doğru yemi seçin</p>
+            <button onclick="hideKadir()">KAPAT</button>
+            <p class="credit">Site Yapımcı: <span>ATLAS</span></p>
         </div>
     </div>
 
     <script>
-        // --- DETAY MODAL VERİ TABANI ---
-        const productData = {
-            sut: {
-                title: "Akgül Süt 21 (Premium)",
-                purpose: "Yüksek verimli sağmal süt ineklerinin pik laktasyon (en yüksek süt verim) dönemleri boyunca tüm enerji ve protein dengesini korumak, süt yağı ve proteinini desteklemek amacıyla özel olarak rasyonlandırılmış laktasyon yemidir.",
-                specs: [
-                    { name: "Ham Protein", val: "%21,00 (Min)" },
-                    { name: "Metabolize Edilebilir Enerji", val: "2850 Kcal/kg (Min)" },
-                    { name: "Ham Selüloz", val: "%8,50 (Max)" },
-                    { name: "Ham Kül", val: "%9,00 (Max)" },
-                    { name: "Ham Yağ", val: "%3,00 (Min)" },
-                    { name: "Nişasta", val: "%24,00 (Min)" },
-                    { name: "Kalsiyum", val: "%1,20 (Min)" },
-                    { name: "Fosfor", val: "%0,60 (Min)" },
-                    { name: "Sodyum", val: "%0,40 (Min)" },
-                    { name: "Vitamin A", val: "15.000 IU/kg" },
-                    { name: "Vitamin D3", val: "3.000 IU/kg" }
-                ],
-                ingredients: ["Arpa Ezme", "Mısır Flake", "Soya Küspesi (%48 HP)", "Ayçiçeği Tohumu Küspesi", "Mısır Gluteni", "DDGS (Kurutulmuş Damıtık Dane)", "Kanola Küspesi", "Mineral-Vitamin Toksin Bağlayıcı Premiks"],
-                recommendations: "Süt ineklerine kuru kaba yemlerin (Mısır silajı, yonca ve saman) yanında rasyonun protein düzeyine göre dengelenerek verilmelidir. İneklerin önünde her zaman temiz ve serbest içilebilir su bulunmalıdır."
-            },
-            buzagi: {
-                title: "Buzağı Başlangıç Yemi",
-                purpose: "Yeni doğan buzağıların 2. haftasından itibaren işkembe (rumen) duvarındaki papilla gelişimini hızlandırmak, bağışıklık sistemini kuvvetlendirerek ishalleri önlemek amacıyla sindirilebilirliği en üst düzey hammaddelerle tasarlanmıştır.",
-                specs: [
-                    { name: "Ham Protein", val: "%18,00 (Min)" },
-                    { name: "Metabolize Edilebilir Enerji", val: "2900 Kcal/kg (Min)" },
-                    { name: "Ham Selüloz", val: "%7,00 (Max)" },
-                    { name: "Ham Kül", val: "%8,00 (Max)" },
-                    { name: "Ham Yağ", val: "%3,20 (Min)" },
-                    { name: "Kalsiyum", val: "%1,00 (Min)" },
-                    { name: "Fosfor", val: "%0,55 (Min)" },
-                    { name: "Sodyum", val: "%0,35 (Min)" },
-                    { name: "Aktif Canlı Maya (Sacc. Cerevisiae)", val: "Eklenmiştir" }
-                ],
-                ingredients: ["İnce Ezilmiş Mısır", "Özel İşlenmiş Arpa", "Soya Küspesi", "Melas (Şeker Pancarı)", "Kurutulmuş Şeker Pancarı Posası", "Canlı Maya Hücre Duvarı Katalizörü", "Kalsiyum Karbonat", "Vitamin-Mineral Kombinasyonu"],
-                recommendations: "Buzağıların önünde 2. haftadan itibaren serbest (ad-libitum) olarak bulundurulmalıdır. Kalitesiz kaba yemlerden kaçınılmalı, temiz buzağı bölmelerinde taze içme suyu ile beraber sunulmalıdır."
-            },
-            kuzu: {
-                title: "Premium Kuzu Besi Yemi",
-                purpose: "Sütten kesilen besi kuzularının hızlı kas ve kemik gelişim döneminde maksimum karkas randımanı elde etmek, böbrek ve idrar taşı (urolithiasis) oluşum risklerini asgariye indirmek üzere özel amonyum klorür dengeli besi rasyonudur.",
-                specs: [
-                    { name: "Ham Protein", val: "%16,00 (Min)" },
-                    { name: "Metabolize Edilebilir Enerji", val: "2800 Kcal/kg (Min)" },
-                    { name: "Ham Selüloz", val: "%8,00 (Max)" },
-                    { name: "Ham Kül", val: "%7,50 (Max)" },
-                    { name: "Ham Yağ", val: "%3,00 (Min)" },
-                    { name: "Kalsiyum", val: "%0,90 (Min)" },
-                    { name: "Fosfor", val: "%0,50 (Min)" },
-                    { name: "Amonyum Klorür (İdrar Taşı Önleyici)", val: "%0,50 dengeli" }
-                ],
-                ingredients: ["Arpa", "Mısır", "Buğday Kepeği", "Soya Küspesi", "Ayçiçeği Küspesi", "Mısır Gluteni", "Melas", "Mermer Tozu", "Kuzuya Özel İdrar Kanalı Koruyucu Mineral Premiksi"],
-                recommendations: "Kuzulara sütten kesimden kesim anına kadar kuru ve kaliteli yonca ile birlikte kontrollü olarak verilmelidir. Böbrek sağlığı için suyun temiz, sürekli ve ılık olmasına özen gösterilmelidir."
-            },
-            civciv: {
-                title: "Etlik Civciv Başlangıç Yemi",
-                purpose: "Etlik broiler civcivlerinin ilk 15 günlük kritik yaşam evresinde hücre bölünmesini, kas liflerinin kalınlaşmasını ve tüy oluşumunu desteklemek amacıyla yüksek metabolize edilebilir enerji ve yüksek sindirilebilir aminoasit konsantrasyonuyla hazırlanmış mikro pelet tam yemdir.",
-                specs: [
-                    { name: "Ham Protein", val: "%22,00 (Min)" },
-                    { name: "Metabolize Edilebilir Enerji", val: "3050 Kcal/kg (Min)" },
-                    { name: "Ham Selüloz", val: "%4,00 (Max)" },
-                    { name: "Ham Kül", val: "%6,50 (Max)" },
-                    { name: "Ham Yağ", val: "%4,00 (Min)" },
-                    { name: "Kalsiyum", val: "%1,00 (Min)" },
-                    { name: "Fosfor", val: "%0,70 (Min)" },
-                    { name: "Lizin / Metiyonin", val: "Dengelenmiş Aminoasitler" }
-                ],
-                ingredients: ["Mısır", "Soya Küspesi (%48 HP)", "Mısır Gluteni", "Özel Bitkisel Yağlar", "Monokalsiyum Fosfat (MCP)", "L-Lizin", "DL-Metiyonin", "Koksidiyostatik (Koruyucu)", "Kanatlı Vitamin Kompleksi"],
-                recommendations: "Civcivlerin ilk gününden itibaren 15. güne kadar başka hiçbir yem maddesi karıştırılmadan serbest olarak önlerinde bulundurulmalı, taze ve oda sıcaklığında su tedarik edilmelidir."
-            },
-            tavuk: {
-                title: "Gezen Tavuk Yumurta Yemi",
-                purpose: "Yumurtlama döneminde olan ve gezen tavukların yumurta verim periyodunu uzatmak, sert ve pürüzsüz kabuk kalitesini muhafaza etmek ve doğal hammadde özleriyle iştah açıcı doğal yumurta sarısı elde etmek amacıyla üretilmiştir.",
-                specs: [
-                    { name: "Ham Protein", val: "%17,00 (Min)" },
-                    { name: "Metabolize Edilebilir Enerji", val: "2750 Kcal/kg (Min)" },
-                    { name: "Ham Selüloz", val: "%5,00 (Max)" },
-                    { name: "Ham Kül", val: "%12,50 (Max)" },
-                    { name: "Ham Yağ", val: "%3,50 (Min)" },
-                    { name: "Kalsiyum", val: "%3,80 (Min)" },
-                    { name: "Fosfor", val: "%0,65 (Min)" },
-                    { name: "Metiyonin", val: "%0,38 (Min)" }
-                ],
-                ingredients: ["Mısır", "Sarı Buğday", "Arpa", "Soya Küspesi", "Ayçiçeği Küspesi", "Kalsiyum Karbonat (Mermer Granülü)", "Dikalsiyum Fosfat", "Doğal Ksantofil (Yumurta Sarısı Pigmenti)", "Kanatlı Katkı Mineralleri"],
-                recommendations: "Günlük tavuk başına ortalama 110-120 gr olacak şekilde yemliklerde sürekli sunulmalı, tavukların doğal gezinme alanlarındaki kalsiyum ihtiyacını destekleyen rasyon bütünlüğünü korumalıdır."
-            },
-            hindi: {
-                title: "Hindi Gelişim Master Yemi",
-                purpose: "Besi hindilerinin 8. haftadan kesim periyoduna kadar olan hızlı gelişim fazında yüksek et tutumu, geniş göğüs eti yapısı ve dayanıklı eklem/ayak kemik mimarisi oluşturması için zenginleştirilmiş makro gelişim yemidir.",
-                specs: [
-                    { name: "Ham Protein", val: "%20,00 (Min)" },
-                    { name: "Metabolize Edilebilir Enerji", val: "2950 Kcal/kg (Min)" },
-                    { name: "Ham Selüloz", val: "%5,00 (Max)" },
-                    { name: "Ham Kül", val: "%7,00 (Max)" },
-                    { name: "Ham Yağ", val: "%4,50 (Min)" },
-                    { name: "Kalsiyum", val: "%1,20 (Min)" },
-                    { name: "Fosfor", val: "%0,80 (Min)" },
-                    { name: "Sodyum", val: "%0,18 (Min)" }
-                ],
-                ingredients: ["Mısır", "Soya Küspesi", "Buğday", "Ayçiçeği Tohumu Küspesi", "Bitkisel Likit Yağlar", "Sentetik Aminoasitler (Lizin, Treonin)", "Hindiye Özel Vitamin-Mineral İz Element Paketi"],
-                recommendations: "Hindilerin hızlı gelişim aşamasında metabolizmaları çok hızlı çalıştığı için yemliklerin temiz ve sürekli dolu olmasına dikkat edilmeli, bol miktarda taze içme suyu bulundurulmalıdır."
-            }
-        };
-
-        function openDetails(key) {
-            const data = productData[key];
-            if (!data) return;
-
-            document.getElementById('m-title').innerText = data.title;
-            document.getElementById('m-purpose').innerText = data.purpose;
-            document.getElementById('m-recommendations').innerText = data.recommendations;
-
-            // Analiz tablosunu doldur
-            const specTable = document.getElementById('m-specs-table');
-            specTable.innerHTML = '';
-            data.specs.forEach(s => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td><b>${s.name}</b></td><td>${s.val}</td>`;
-                specTable.appendChild(tr);
-            });
-
-            // Hammaddeleri doldur
-            const ingList = document.getElementById('m-ingredients');
-            ingList.innerHTML = '';
-            data.ingredients.forEach(i => {
-                const li = document.createElement('li');
-                li.innerText = i;
-                ingList.appendChild(li);
-            });
-
-            document.getElementById('productDetailModal').style.display = 'flex';
-        }
-
-        function closeDetails() {
-            document.getElementById('productDetailModal').style.display = 'none';
-        }
-
-        // Modal dışına tıklandığında kapatma
-        window.onclick = function(event) {
-            const modal = document.getElementById('productDetailModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-    <script>
-        // --- PRELOADER ---
-        const brand = "AKGÜLYEM";
-        const container = document.getElementById('letterContainer');
-        brand.split('').forEach((char, i) => {
-            const span = document.createElement('span');
-            span.innerText = char;
-            span.className = 'letter';
-            container.appendChild(span);
-            setTimeout(() => span.classList.add('active'), i * 100);
+        // Preloader
+        window.addEventListener('load', () => {
+            const l = document.getElementById('loader');
+            l.style.opacity = '0';
+            setTimeout(() => { l.style.display = 'none'; }, 500);
+            setTimeout(animateCounters, 600);
         });
 
-        // --- GÜVENLİ AÇILIŞ (FIX) ---
-        function clearLoader() {
-            const loader = document.getElementById('loader');
-            if(loader) {
-                loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 600);
-            }
-        }
-        window.addEventListener('load', () => setTimeout(clearLoader, 1500));
-        setTimeout(clearLoader, 3500); // Donmayı önleyen zamanlayıcı
-
-        // --- ASISTAN ---
-        function toggleAsistan() {
-            const panel = document.getElementById('assistant-panel');
-            panel.style.display = (panel.style.display === 'flex' ? 'none' : 'flex');
-        }
-
-        function expertChat(msg) {
-            const area = document.getElementById('chatArea');
-            const uMsg = document.createElement('div');
-            uMsg.className = 'bubble user';
-            uMsg.innerText = msg;
-            area.appendChild(uMsg);
-
-            setTimeout(() => {
-                const bMsg = document.createElement('div');
-                bMsg.className = 'bubble bot';
-                
-                const lowerMsg = msg.toLowerCase();
-                
-                if(lowerMsg.includes('sevkiyat') || lowerMsg.includes('kargo') || lowerMsg.includes('teslimat') || lowerMsg.includes('gönderim')) {
-                    bMsg.innerHTML = "Kesinlikle adrese <b>sevkiyatımız veya kargo gönderimimiz bulunmamaktadır</b>. Tüm müşterilerimiz şubemize gelerek yemlerimizi elden teslim almaktadır.";
-                } else if(lowerMsg.includes('konum') || lowerMsg.includes('adres')) {
-                    bMsg.innerHTML = "<b>Tam Adresimiz:</b> Bahçeşehir, Hasanköy Cd. No:231, 42100 Meram/Konya'dır. Detaylı yol tarifi için sitemizdeki harita butonuna tıklayarak Google Maps yönlendirmesini başlatabilirsiniz.";
-                } else if(lowerMsg.includes('saatler') || lowerMsg.includes('hangi günler') || lowerMsg.includes('salı')) {
-                    bMsg.innerHTML = "Şubemiz <b>haftanın 6 günü 07:00 - 20:00 saatleri arasında açıktır</b>. <b style='color: red;'>Salı günleri ise tamamen kapalıyız</b>. Planlamanızı buna göre yapmanızı önemle rica ederiz.";
-                } else if(lowerMsg.includes('rezervasyon') || lowerMsg.includes('ayırt') || lowerMsg.includes('gelmeden önce')) {
-                    bMsg.innerHTML = "Evet, şubemize gelmeden önce yolda mağdur olmamanız için 0538 661 00 57 numaralı telefondan bizi arayarak veya WhatsApp'tan yazarak adınıza rasyon ayırtabilirsiniz.";
-                } else if(lowerMsg.includes('fiyat') || lowerMsg.includes('rasyon') || lowerMsg.includes('özellikleri') || lowerMsg.includes('protein') || lowerMsg.includes('yem')) {
-                    bMsg.innerHTML = "Laboratuvarımızda taze hazırlanan yem rasyonlarımızın protein, enerji ve hammadde detaylarına ürün kartlarındaki <b>TEKNİK DETAY</b> butonlarına tıklayarak detaylıca ulaşabilirsiniz.";
-                } else {
-                    bMsg.innerText = "Akgül Yem Meram şubemizden elden satış yapmaktadır. Güncel rasyon ve teknik detaylar için 0538 661 00 57 numaralı hattımızdan bizimle dilediğiniz an iletişime geçebilirsiniz.";
+        // Counter
+        function animateCounters() {
+            document.querySelectorAll('.counter').forEach(c => {
+                const target = parseInt(c.getAttribute('data-target'));
+                const inc = target / 50;
+                let cur = 0;
+                function up() {
+                    if (cur < target) { c.textContent = Math.floor(cur); cur += inc; requestAnimationFrame(up); }
+                    else c.textContent = target;
                 }
-                
-                area.appendChild(bMsg);
-                area.scrollTop = area.scrollHeight;
-            }, 600);
-            area.scrollTop = area.scrollHeight;
+                up();
+            });
         }
+
+        // Scroll Top
+        window.addEventListener('scroll', () => {
+            document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 300);
+        });
+
+        // Kadir Popup
+        function showKadir() {
+            document.getElementById('kadirPopup').classList.add('show');
+        }
+        function hideKadir() {
+            document.getElementById('kadirPopup').classList.remove('show');
+        }
+
+        // Product Data
+        const data = {
+            sut: { title:"Akgül Süt 21", purpose:"Yüksek verimli süt ineklerinin laktasyon dönemi için optimize edilmiş protein-enerji dengesi.", specs:[{n:"Ham Protein",v:"%21"},{n:"ME",v:"2850 Kcal"},{n:"Ham Selüloz",v:"%8.5"},{n:"Kalsiyum",v:"%1.2"},{n:"Fosfor",v:"%0.6"}], ing:["Arpa","Mısır Flake","Soya Küspesi","Ayçiçeği Küspesi","DDGS","Mineral Premiks"], rec:"Kaba yemlerle dengelenerek verilmeli. Bol su bulundurulmalı." },
+            buzagi: { title:"Buzağı Başlangıç", purpose:"2. haftadan itibaren buzağılarda işkembe gelişimi ve bağışıklık için özel maya katkılı yem.", specs:[{n:"Ham Protein",v:"%18"},{n:"ME",v:"2900 Kcal"},{n:"Ham Selüloz",v:"%7"},{n:"Kalsiyum",v:"%1"},{n:"Aktif Maya",v:"Var"}], ing:["Mısır","Arpa","Soya Küspesi","Melas","Pancar Posası","Canlı Maya"], rec:"2. haftadan itibaren serbest verilmeli." },
+            kuzu: { title:"Premium Kuzu Besi", purpose:"Sütten kesilen kuzularda hızlı kas gelişimi ve karkas kalitesi için özel rasyon.", specs:[{n:"Ham Protein",v:"%16"},{n:"ME",v:"2800 Kcal"},{n:"Ham Selüloz",v:"%8"},{n:"Kalsiyum",v:"%0.9"},{n:"Amonyum Klorür",v:"%0.5"}], ing:["Arpa","Mısır","Kepek","Soya Küspesi","Ayçiçeği Küspesi","Melas"], rec:"Kuru yonca ile kontrollü verilmeli." },
+            civciv: { title:"Etlik Civciv Başlangıç", purpose:"İlk 15 gün broiler civcivler için yüksek aminoasitli mikro pelet yem.", specs:[{n:"Ham Protein",v:"%22"},{n:"ME",v:"3050 Kcal"},{n:"Ham Selüloz",v:"%4"},{n:"Kalsiyum",v:"%1"},{n:"Lizin",v:"Dengeli"}], ing:["Mısır","Soya Küspesi","Mısır Gluteni","Bitkisel Yağlar","Vitaminler"], rec:"İlk günden 15. güne serbest verilmeli." },
+            tavuk: { title:"Gezen Tavuk Yumurta", purpose:"Yumurta verimi ve kabuk kalitesi için kalsiyum zengini formül.", specs:[{n:"Ham Protein",v:"%17"},{n:"ME",v:"2750 Kcal"},{n:"Kalsiyum",v:"%3.8"},{n:"Fosfor",v:"%0.65"},{n:"Metiyonin",v:"%0.38"}], ing:["Mısır","Buğday","Arpa","Soya Küspesi","Kalsiyum Karbonat","Ksantofil"], rec:"Tavuk başına günlük 110-120 gr." },
+            hindi: { title:"Hindi Gelişim Master", purpose:"8. haftadan kesime kadar hindi gelişimi için zenginleştirilmiş protein-enerji yemi.", specs:[{n:"Ham Protein",v:"%20"},{n:"ME",v:"2950 Kcal"},{n:"Ham Selüloz",v:"%5"},{n:"Kalsiyum",v:"%1.2"},{n:"Fosfor",v:"%0.8"}], ing:["Mısır","Soya Küspesi","Buğday","Ayçiçeği Küspesi","Bitkisel Yağlar","Vitaminler"], rec:"Temiz yemlikte sürekli dolu, bol su." }
+        };
+
+        function openDetay(key) {
+            const d = data[key]; if (!d) return;
+            document.getElementById('dtitle').innerText = d.title;
+            document.getElementById('dpurpose').innerText = d.purpose;
+            document.getElementById('drec').innerText = d.rec;
+            const st = document.getElementById('dspecs'); st.innerHTML = '';
+            d.specs.forEach(s => { st.innerHTML += '<tr><td><b>'+s.n+'</b></td><td>'+s.v+'</td></tr>'; });
+            const il = document.getElementById('dingredients'); il.innerHTML = '';
+            d.ing.forEach(i => { il.innerHTML += '<span>'+i+'</span>'; });
+            document.getElementById('detayModal').style.display = 'flex';
+        }
+        function kapatDetay() { document.getElementById('detayModal').style.display = 'none'; }
+        window.onclick = function(e) { const m = document.getElementById('detayModal'); if (e.target === m) m.style.display = 'none'; };
     </script>
 </body>
 </html>
